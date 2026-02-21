@@ -1,25 +1,247 @@
+import { useState } from 'react';
 import { useSeoMeta } from '@unhead/react';
+import { Video, Plus, Film, Loader2 } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent } from '@/components/ui/card';
+import { Skeleton } from '@/components/ui/skeleton';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from '@/components/ui/dialog';
+import { LoginArea } from '@/components/auth/LoginArea';
+import { VideoCard } from '@/components/VideoCard';
+import { VideoUploadForm } from '@/components/VideoUploadForm';
+import { useVideos } from '@/hooks/useVideos';
+import { useCurrentUser } from '@/hooks/useCurrentUser';
 
-// FIXME: Update this page (the content is just a fallback if you fail to update the page)
+function VideoSkeleton() {
+  return (
+    <Card className="overflow-hidden bg-card border-border/50">
+      <Skeleton className="aspect-video w-full" />
+      <CardContent className="p-4">
+        <Skeleton className="h-6 w-3/4 mb-2" />
+        <Skeleton className="h-4 w-full mb-1" />
+        <Skeleton className="h-4 w-2/3 mb-3" />
+        <div className="flex justify-between">
+          <Skeleton className="h-3 w-20" />
+          <Skeleton className="h-5 w-16" />
+        </div>
+      </CardContent>
+    </Card>
+  );
+}
 
 const Index = () => {
+  const [uploadDialogOpen, setUploadDialogOpen] = useState(false);
+  const { user } = useCurrentUser();
+  const { data: videos, isLoading, error } = useVideos();
+  
   useSeoMeta({
-    title: 'Welcome to Your Blank App',
-    description: 'A modern Nostr client application built with React, TailwindCSS, and Nostrify.',
+    title: 'My DiVine Videos',
+    description: 'A Nostr video client for sharing and discovering NIP-71 videos.',
   });
 
+  const normalVideos = videos?.filter((v) => !v.isShort) || [];
+  const shortVideos = videos?.filter((v) => v.isShort) || [];
+
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100 dark:bg-gray-900">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4 text-gray-900 dark:text-gray-100">
-          Welcome to Your Blank App
-        </h1>
-        <p className="text-xl text-gray-600 dark:text-gray-400">
-          Start building your amazing project here!
-        </p>
-      </div>
+    <div className="min-h-screen bg-background">
+      {/* Header */}
+      <header className="sticky top-0 z-50 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b border-border">
+        <div className="container mx-auto px-4 py-4">
+          <div className="flex items-center justify-between">
+            {/* Logo and Title */}
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-primary/60 flex items-center justify-center">
+                <Video className="w-5 h-5 text-primary-foreground" />
+              </div>
+              <div>
+                <h1 className="text-xl md:text-2xl font-bold bg-gradient-to-r from-primary to-red-400 bg-clip-text text-transparent">
+                  My DiVine Videos
+                </h1>
+                <p className="text-xs text-muted-foreground hidden sm:block">
+                  NIP-71 Video Platform
+                </p>
+              </div>
+            </div>
+            
+            {/* Actions */}
+            <div className="flex items-center gap-3">
+              {user && (
+                <Dialog open={uploadDialogOpen} onOpenChange={setUploadDialogOpen}>
+                  <DialogTrigger asChild>
+                    <Button className="bg-primary hover:bg-primary/90 gap-2">
+                      <Plus className="w-4 h-4" />
+                      <span className="hidden sm:inline">Post Video</span>
+                    </Button>
+                  </DialogTrigger>
+                  <DialogContent className="sm:max-w-[600px] max-h-[90vh] overflow-y-auto">
+                    <DialogHeader>
+                      <DialogTitle className="sr-only">Post a Video</DialogTitle>
+                    </DialogHeader>
+                    <VideoUploadForm />
+                  </DialogContent>
+                </Dialog>
+              )}
+              <LoginArea className="max-w-[200px]" />
+            </div>
+          </div>
+        </div>
+      </header>
+
+      {/* Main Content */}
+      <main className="container mx-auto px-4 py-8">
+        {/* Hero Section */}
+        <div className="mb-8 text-center">
+          <p className="text-muted-foreground max-w-2xl mx-auto">
+            Discover and share videos on the decentralized Nostr network. 
+            All videos are stored using the NIP-71 protocol.
+          </p>
+        </div>
+
+        {/* Video Tabs */}
+        <Tabs defaultValue="all" className="w-full">
+          <TabsList className="grid w-full max-w-md mx-auto grid-cols-3 mb-8">
+            <TabsTrigger value="all" className="gap-2">
+              <Video className="w-4 h-4" />
+              <span className="hidden sm:inline">All</span>
+            </TabsTrigger>
+            <TabsTrigger value="normal" className="gap-2">
+              <Film className="w-4 h-4" />
+              <span className="hidden sm:inline">Videos</span>
+            </TabsTrigger>
+            <TabsTrigger value="shorts" className="gap-2">
+              <Video className="w-4 h-4 rotate-90" />
+              <span className="hidden sm:inline">Shorts</span>
+            </TabsTrigger>
+          </TabsList>
+
+          {/* Loading State */}
+          {isLoading && (
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+              {[...Array(8)].map((_, i) => (
+                <VideoSkeleton key={i} />
+              ))}
+            </div>
+          )}
+
+          {/* Error State */}
+          {error && (
+            <Card className="border-dashed max-w-md mx-auto">
+              <CardContent className="py-12 px-8 text-center">
+                <div className="max-w-sm mx-auto space-y-4">
+                  <Loader2 className="w-8 h-8 text-primary mx-auto animate-spin" />
+                  <p className="text-muted-foreground">
+                    Having trouble loading videos. Please check your connection and try again.
+                  </p>
+                </div>
+              </CardContent>
+            </Card>
+          )}
+
+          {/* All Videos */}
+          <TabsContent value="all">
+            {!isLoading && !error && (
+              <>
+                {videos && videos.length > 0 ? (
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                    {videos.map((video) => (
+                      <VideoCard key={video.event.id} video={video} />
+                    ))}
+                  </div>
+                ) : (
+                  <EmptyState />
+                )}
+              </>
+            )}
+          </TabsContent>
+
+          {/* Normal Videos */}
+          <TabsContent value="normal">
+            {!isLoading && !error && (
+              <>
+                {normalVideos.length > 0 ? (
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                    {normalVideos.map((video) => (
+                      <VideoCard key={video.event.id} video={video} />
+                    ))}
+                  </div>
+                ) : (
+                  <EmptyState type="videos" />
+                )}
+              </>
+            )}
+          </TabsContent>
+
+          {/* Short Videos */}
+          <TabsContent value="shorts">
+            {!isLoading && !error && (
+              <>
+                {shortVideos.length > 0 ? (
+                  <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
+                    {shortVideos.map((video) => (
+                      <VideoCard key={video.event.id} video={video} />
+                    ))}
+                  </div>
+                ) : (
+                  <EmptyState type="shorts" />
+                )}
+              </>
+            )}
+          </TabsContent>
+        </Tabs>
+      </main>
+
+      {/* Footer */}
+      <footer className="border-t border-border py-8 mt-12">
+        <div className="container mx-auto px-4 text-center">
+          <p className="text-sm text-muted-foreground">
+            Vibed with{' '}
+            <a
+              href="https://shakespeare.diy"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-primary hover:underline"
+            >
+              Shakespeare
+            </a>
+          </p>
+        </div>
+      </footer>
     </div>
   );
 };
+
+function EmptyState({ type = 'videos' }: { type?: 'videos' | 'shorts' | string }) {
+  const getMessage = () => {
+    switch (type) {
+      case 'shorts':
+        return 'No short videos found yet. Check back later!';
+      case 'videos':
+        return 'No long-form videos found yet. Check back later!';
+      default:
+        return 'No videos found yet. Be the first to post one!';
+    }
+  };
+
+  return (
+    <Card className="border-dashed max-w-md mx-auto">
+      <CardContent className="py-12 px-8 text-center">
+        <div className="max-w-sm mx-auto space-y-6">
+          <div className="w-16 h-16 rounded-full bg-secondary flex items-center justify-center mx-auto">
+            <Film className="w-8 h-8 text-muted-foreground" />
+          </div>
+          <p className="text-muted-foreground">
+            {getMessage()}
+          </p>
+        </div>
+      </CardContent>
+    </Card>
+  );
+}
 
 export default Index;
