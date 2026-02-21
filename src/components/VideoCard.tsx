@@ -59,6 +59,7 @@ export function VideoCard({ video }: VideoCardProps) {
             src={primaryMedia?.url}
             controls
             autoPlay
+            loop
             className="w-full h-full object-contain"
             poster={thumbnail}
           >
