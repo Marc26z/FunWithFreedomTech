@@ -97,9 +97,9 @@ const Index = () => {
       <main className="container mx-auto px-4 py-8">
         {/* Hero Section */}
         <div className="mb-8 text-center">
-          <p className="text-muted-foreground max-w-2xl mx-auto">
+          <h2 className="text-2xl md:text-3xl font-semibold text-foreground max-w-2xl mx-auto">
             Reject AI Slop. Download DiVine.
-          </p>
+          </h2>
         </div>
 
         {/* Video Tabs */}
