@@ -2,8 +2,11 @@ import { useNostr } from '@nostrify/react';
 import { useQuery } from '@tanstack/react-query';
 import type { NostrEvent } from '@nostrify/nostrify';
 
-// The pubkey for npub1marcl30nnqruvzz7gv075d8xaqvhlexd02gmh6dw7afxxpt2kcvs44xf53
-const VIDEO_AUTHOR_PUBKEY = 'df478fc5f39807c6085e431fea34e6e8197fe4cd7a91bbe9aef75263056ab619';
+// Video author pubkeys
+const VIDEO_AUTHOR_PUBKEYS = [
+  'df478fc5f39807c6085e431fea34e6e8197fe4cd7a91bbe9aef75263056ab619', // npub1marcl30nnqruvzz7gv075d8xaqvhlexd02gmh6dw7afxxpt2kcvs44xf53
+  'df478568479de26b4a83c1bdc4dbab61b5cc82e1a312e2b28bc815a12a951e67', // npub1marc26z8nh3xkj5rcx7ufkatvx6ueqhp5vfw9v5teq26z254renshtf3g0
+];
 
 // NIP-71 Video kinds
 const VIDEO_KINDS = {
@@ -136,18 +139,18 @@ function parseVideoEvent(event: NostrEvent): ParsedVideo | null {
 }
 
 /**
- * Hook to fetch NIP-71 videos from the configured author
+ * Hook to fetch NIP-71 videos from the configured authors
  */
 export function useVideos() {
   const { nostr } = useNostr();
 
   return useQuery<ParsedVideo[]>({
-    queryKey: ['videos', VIDEO_AUTHOR_PUBKEY],
+    queryKey: ['videos', VIDEO_AUTHOR_PUBKEYS],
     queryFn: async ({ signal }) => {
       const events = await nostr.query(
         [{
           kinds: [VIDEO_KINDS.NORMAL, VIDEO_KINDS.SHORT],
-          authors: [VIDEO_AUTHOR_PUBKEY],
+          authors: VIDEO_AUTHOR_PUBKEYS,
           limit: 100,
         }],
         { signal: AbortSignal.any([signal, AbortSignal.timeout(10000)]) }
