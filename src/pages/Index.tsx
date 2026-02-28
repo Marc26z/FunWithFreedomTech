@@ -41,8 +41,8 @@ const Index = () => {
   const { data: videos, isLoading, error } = useVideos();
   
   useSeoMeta({
-    title: 'My DiVine Videos',
-    description: 'A Nostr video client for sharing and discovering NIP-71 videos.',
+    title: 'No AI Slop!',
+    description: 'Reject AI Slop. Download DiVine.',
   });
 
   const normalVideos = videos?.filter((v) => !v.isShort) || [];
@@ -61,7 +61,7 @@ const Index = () => {
               </div>
               <div>
                 <h1 className="text-xl md:text-2xl font-bold bg-gradient-to-r from-primary to-red-400 bg-clip-text text-transparent">
-                  My DiVine Videos
+                  No AI Slop!
                 </h1>
                 <p className="text-xs text-muted-foreground hidden sm:block">
                   NIP-71 Video Platform
@@ -98,8 +98,7 @@ const Index = () => {
         {/* Hero Section */}
         <div className="mb-8 text-center">
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Discover and share videos on the decentralized Nostr network. 
-            All videos are stored using the NIP-71 protocol.
+            Reject AI Slop. Download DiVine.
           </p>
         </div>
 
