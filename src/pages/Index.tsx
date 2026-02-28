@@ -4,7 +4,6 @@ import { Video, Plus, Film, Loader2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Skeleton } from '@/components/ui/skeleton';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import {
   Dialog,
   DialogContent,
@@ -45,8 +44,7 @@ const Index = () => {
     description: 'Reject AI Slop. Download DiVine.',
   });
 
-  const normalVideos = videos?.filter((v) => !v.isShort) || [];
-  const shortVideos = videos?.filter((v) => v.isShort) || [];
+  
 
   return (
     <div className="min-h-screen bg-background">
@@ -96,103 +94,57 @@ const Index = () => {
       {/* Main Content */}
       <main className="container mx-auto px-4 py-8">
         {/* Hero Section */}
-        <div className="mb-8 text-center">
+        <div className="mb-8 text-center space-y-4">
           <h2 className="text-2xl md:text-3xl font-semibold text-foreground max-w-2xl mx-auto">
             Reject AI Slop. Download DiVine.
           </h2>
+          <h3 className="text-xl md:text-2xl">
+            <a 
+              href="https://divine.video/discovery/classics" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-primary hover:text-primary/80 hover:underline transition-colors"
+            >
+              Do it for the Vine
+            </a>
+          </h3>
         </div>
 
-        {/* Video Tabs */}
-        <Tabs defaultValue="all" className="w-full">
-          <TabsList className="grid w-full max-w-md mx-auto grid-cols-3 mb-8">
-            <TabsTrigger value="all" className="gap-2">
-              <Video className="w-4 h-4" />
-              <span className="hidden sm:inline">All</span>
-            </TabsTrigger>
-            <TabsTrigger value="normal" className="gap-2">
-              <Film className="w-4 h-4" />
-              <span className="hidden sm:inline">Videos</span>
-            </TabsTrigger>
-            <TabsTrigger value="shorts" className="gap-2">
-              <Video className="w-4 h-4 rotate-90" />
-              <span className="hidden sm:inline">Shorts</span>
-            </TabsTrigger>
-          </TabsList>
+        {/* Short Videos Grid */}
+        {isLoading && (
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
+            {[...Array(10)].map((_, i) => (
+              <VideoSkeleton key={i} />
+            ))}
+          </div>
+        )}
 
-          {/* Loading State */}
-          {isLoading && (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-              {[...Array(8)].map((_, i) => (
-                <VideoSkeleton key={i} />
-              ))}
-            </div>
-          )}
+        {error && (
+          <Card className="border-dashed max-w-md mx-auto">
+            <CardContent className="py-12 px-8 text-center">
+              <div className="max-w-sm mx-auto space-y-4">
+                <Loader2 className="w-8 h-8 text-primary mx-auto animate-spin" />
+                <p className="text-muted-foreground">
+                  Having trouble loading videos. Please check your connection and try again.
+                </p>
+              </div>
+            </CardContent>
+          </Card>
+        )}
 
-          {/* Error State */}
-          {error && (
-            <Card className="border-dashed max-w-md mx-auto">
-              <CardContent className="py-12 px-8 text-center">
-                <div className="max-w-sm mx-auto space-y-4">
-                  <Loader2 className="w-8 h-8 text-primary mx-auto animate-spin" />
-                  <p className="text-muted-foreground">
-                    Having trouble loading videos. Please check your connection and try again.
-                  </p>
-                </div>
-              </CardContent>
-            </Card>
-          )}
-
-          {/* All Videos */}
-          <TabsContent value="all">
-            {!isLoading && !error && (
-              <>
-                {videos && videos.length > 0 ? (
-                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-                    {videos.map((video) => (
-                      <VideoCard key={video.event.id} video={video} />
-                    ))}
-                  </div>
-                ) : (
-                  <EmptyState />
-                )}
-              </>
+        {!isLoading && !error && (
+          <>
+            {videos && videos.length > 0 ? (
+              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
+                {videos.map((video) => (
+                  <VideoCard key={video.event.id} video={video} />
+                ))}
+              </div>
+            ) : (
+              <EmptyState type="shorts" />
             )}
-          </TabsContent>
-
-          {/* Normal Videos */}
-          <TabsContent value="normal">
-            {!isLoading && !error && (
-              <>
-                {normalVideos.length > 0 ? (
-                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-                    {normalVideos.map((video) => (
-                      <VideoCard key={video.event.id} video={video} />
-                    ))}
-                  </div>
-                ) : (
-                  <EmptyState type="videos" />
-                )}
-              </>
-            )}
-          </TabsContent>
-
-          {/* Short Videos */}
-          <TabsContent value="shorts">
-            {!isLoading && !error && (
-              <>
-                {shortVideos.length > 0 ? (
-                  <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
-                    {shortVideos.map((video) => (
-                      <VideoCard key={video.event.id} video={video} />
-                    ))}
-                  </div>
-                ) : (
-                  <EmptyState type="shorts" />
-                )}
-              </>
-            )}
-          </TabsContent>
-        </Tabs>
+          </>
+        )}
       </main>
 
       {/* Footer */}

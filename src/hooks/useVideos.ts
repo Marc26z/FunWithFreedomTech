@@ -136,17 +136,17 @@ function parseVideoEvent(event: NostrEvent): ParsedVideo | null {
 }
 
 /**
- * Hook to fetch NIP-71 videos from the configured author
+ * Hook to fetch NIP-71 short videos from the configured author
  */
 export function useVideos() {
   const { nostr } = useNostr();
 
   return useQuery<ParsedVideo[]>({
-    queryKey: ['videos', VIDEO_AUTHOR_PUBKEY],
+    queryKey: ['videos', VIDEO_AUTHOR_PUBKEY, 'shorts'],
     queryFn: async ({ signal }) => {
       const events = await nostr.query(
         [{
-          kinds: [VIDEO_KINDS.NORMAL, VIDEO_KINDS.SHORT],
+          kinds: [VIDEO_KINDS.SHORT], // Only fetch short videos (kind 34236)
           authors: [VIDEO_AUTHOR_PUBKEY],
           limit: 100,
         }],
