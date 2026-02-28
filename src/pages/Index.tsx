@@ -40,7 +40,7 @@ const Index = () => {
   const { data: videos, isLoading, error } = useVideos();
   
   useSeoMeta({
-    title: 'No AI Slop!',
+    title: 'Reject AI Slop',
     description: 'Reject AI Slop. Download DiVine.',
   });
 
@@ -59,7 +59,7 @@ const Index = () => {
               </div>
               <div>
                 <h1 className="text-xl md:text-2xl font-bold bg-gradient-to-r from-primary to-red-400 bg-clip-text text-transparent">
-                  No AI Slop!
+                  Reject AI Slop
                 </h1>
                 <p className="text-xs text-muted-foreground hidden sm:block">
                   NIP-71 Video Platform
