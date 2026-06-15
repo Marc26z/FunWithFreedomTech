@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useSeoMeta } from '@unhead/react';
-import { Video, Plus, Film, Loader2 } from 'lucide-react';
+import { Video, Plus, Film, Loader2, BookOpen } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Skeleton } from '@/components/ui/skeleton';
@@ -40,7 +40,7 @@ const Index = () => {
   const { data: videos, isLoading, error } = useVideos();
   
   useSeoMeta({
-    title: 'Reject AI Slop',
+    title: "Marc's Freedom Tech Stuff",
     description: 'Reject AI Slop. Download DiVine.',
   });
 
@@ -59,14 +59,24 @@ const Index = () => {
               </div>
               <div>
                 <h1 className="text-xl md:text-2xl font-bold bg-gradient-to-r from-primary to-red-400 bg-clip-text text-transparent">
-                  Reject AI Slop
+                  Marc's Freedom Tech Stuff
                 </h1>
-                <p className="text-xs text-muted-foreground hidden sm:block">
-                  NIP-71 Video Platform
-                </p>
               </div>
             </div>
             
+            {/* Navigation */}
+            <nav className="flex items-center gap-2">
+              <a
+                href="https://habla.coracle.social/p/npub1marc26z8nh3xkj5rcx7ufkatvx6ueqhp5vfw9v5teq26z254renshtf3g0"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors"
+              >
+                <BookOpen className="w-4 h-4" />
+                Blog
+              </a>
+            </nav>
+
             {/* Actions */}
             <div className="flex items-center gap-3">
               {user && (
