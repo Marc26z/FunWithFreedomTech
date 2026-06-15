@@ -40,7 +40,7 @@ const Index = () => {
   const { data: videos, isLoading, error } = useVideos();
   
   useSeoMeta({
-    title: "Marc's Freedom Tech Stuff",
+    title: "Marc's Freedom Tech Fun",
     description: 'Fun With Freedom Tech',
   });
 
@@ -54,12 +54,16 @@ const Index = () => {
           <div className="flex items-center justify-between">
             {/* Logo and Title */}
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-primary/60 flex items-center justify-center">
-                <Video className="w-5 h-5 text-primary-foreground" />
-              </div>
+              <a href="https://marc.shakespeare.wtf/" className="shrink-0">
+                <img
+                  src="/FreedomTech.jpg"
+                  alt="Freedom Tech"
+                  className="w-10 h-10 rounded-xl object-cover"
+                />
+              </a>
               <div>
                 <h1 className="text-xl md:text-2xl font-bold bg-gradient-to-r from-primary to-red-400 bg-clip-text text-transparent">
-                  Marc's Freedom Tech Stuff
+                  Marc's Freedom Tech Fun
                 </h1>
               </div>
             </div>
