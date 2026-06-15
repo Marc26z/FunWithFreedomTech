@@ -71,7 +71,7 @@ const Index = () => {
             {/* Navigation */}
             <nav className="flex items-center gap-2">
               <a
-                href="https://habla.coracle.social/p/npub1marc26z8nh3xkj5rcx7ufkatvx6ueqhp5vfw9v5teq26z254renshtf3g0"
+                href="https://primal.net/marc#reads"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors"
