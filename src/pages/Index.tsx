@@ -41,7 +41,7 @@ const Index = () => {
   
   useSeoMeta({
     title: "Marc's Freedom Tech Stuff",
-    description: 'Reject AI Slop. Download DiVine.',
+    description: 'Fun With Freedom Tech',
   });
 
   
@@ -106,7 +106,7 @@ const Index = () => {
         {/* Hero Section */}
         <div className="mb-8 text-center space-y-4">
           <h2 className="text-2xl md:text-3xl font-semibold text-foreground max-w-2xl mx-auto">
-            Reject AI Slop. Download DiVine.
+            Fun With Freedom Tech
           </h2>
           <h3 className="text-xl md:text-2xl">
             <a 
@@ -115,7 +115,7 @@ const Index = () => {
               rel="noopener noreferrer"
               className="text-primary hover:text-primary/80 hover:underline transition-colors"
             >
-              Do it for the Vine
+              Welcome To The Free Internet. We have Vine Videos.
             </a>
           </h3>
         </div>
