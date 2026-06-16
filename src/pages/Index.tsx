@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useSeoMeta } from '@unhead/react';
-import { Video, Plus, Film, Loader2, BookOpen } from 'lucide-react';
+import { Video, Plus, Film, Loader2, BookOpen, ShoppingBag } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Skeleton } from '@/components/ui/skeleton';
@@ -78,6 +78,15 @@ const Index = () => {
               >
                 <BookOpen className="w-4 h-4" />
                 Blog
+              </a>
+              <a
+                href="https://shopstr.store/npub1marc26z8nh3xkj5rcx7ufkatvx6ueqhp5vfw9v5teq26z254renshtf3g0"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors"
+              >
+                <ShoppingBag className="w-4 h-4" />
+                Store
               </a>
             </nav>
 
