@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useSeoMeta } from '@unhead/react';
-import { Video, Plus, Film, Loader2, BookOpen, ShoppingBag } from 'lucide-react';
+import { Video, Plus, Film, Loader2, BookOpen, ShoppingBag, Home } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Skeleton } from '@/components/ui/skeleton';
@@ -70,6 +70,13 @@ const Index = () => {
             
             {/* Navigation */}
             <nav className="flex items-center gap-2">
+              <a
+                href="https://marc.shakespeare.wtf/"
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors"
+              >
+                <Home className="w-4 h-4" />
+                Home
+              </a>
               <a
                 href="https://primal.net/marc#reads"
                 target="_blank"
