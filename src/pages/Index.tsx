@@ -63,7 +63,7 @@ const Index = () => {
               </a>
               <div>
                 <h1 className="text-xl md:text-2xl font-bold bg-gradient-to-r from-primary to-red-400 bg-clip-text text-transparent">
-                  Marc's Freedom Tech Fun
+                  Fun With Freedom Tech
                 </h1>
               </div>
             </div>
@@ -121,6 +121,15 @@ const Index = () => {
         </div>
       </header>
 
+      {/* Banner */}
+      <div className="w-full">
+        <img
+          src="/FunWithFreedomTech.png"
+          alt="Fun With Freedom Tech"
+          className="w-full max-h-[400px] object-cover"
+        />
+      </div>
+
       {/* Main Content */}
       <main className="container mx-auto px-4 py-8">
         {/* Hero Section */}
@@ -130,12 +139,12 @@ const Index = () => {
           </h2>
           <h3 className="text-xl md:text-2xl">
             <a 
-              href="https://divine.video/discovery/classics" 
+              href="https://nostr.org/" 
               target="_blank" 
               rel="noopener noreferrer"
               className="text-primary hover:text-primary/80 hover:underline transition-colors"
             >
-              Welcome To The Free Internet. We have Vine Videos.
+              Welcome To The Free Internet.
             </a>
           </h3>
         </div>
