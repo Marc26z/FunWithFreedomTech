@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useSeoMeta } from '@unhead/react';
-import { Video, Plus, Film, Loader2, BookOpen, ShoppingBag, Home } from 'lucide-react';
+import { Video, Plus, Film, Loader2, BookOpen, ShoppingBag, Home, Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Skeleton } from '@/components/ui/skeleton';
@@ -36,6 +36,7 @@ function VideoSkeleton() {
 
 const Index = () => {
   const [uploadDialogOpen, setUploadDialogOpen] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { user } = useCurrentUser();
   const { data: videos, isLoading, error } = useVideos();
   
@@ -50,7 +51,7 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       {/* Header */}
       <header className="sticky top-0 z-50 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b border-border">
-        <div className="container mx-auto px-4 py-4">
+        <div className="container mx-auto px-4 py-3 md:py-4">
           <div className="flex items-center justify-between">
             {/* Logo and Title */}
             <div className="flex items-center gap-3">
@@ -62,14 +63,14 @@ const Index = () => {
                 />
               </a>
               <div>
-                <h1 className="text-xl md:text-2xl font-bold bg-gradient-to-r from-primary to-red-400 bg-clip-text text-transparent">
+                <h1 className="text-lg sm:text-xl md:text-2xl font-bold bg-gradient-to-r from-primary to-red-400 bg-clip-text text-transparent">
                   Fun With Freedom Tech
                 </h1>
               </div>
             </div>
             
-            {/* Navigation */}
-            <nav className="flex items-center gap-2">
+            {/* Desktop Navigation */}
+            <nav className="hidden md:flex items-center gap-2">
               <a
                 href="https://marc.shakespeare.wtf/"
                 className="inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors"
@@ -97,14 +98,14 @@ const Index = () => {
               </a>
             </nav>
 
-            {/* Actions */}
-            <div className="flex items-center gap-3">
+            {/* Desktop Actions */}
+            <div className="hidden md:flex items-center gap-3">
               {user && (
                 <Dialog open={uploadDialogOpen} onOpenChange={setUploadDialogOpen}>
                   <DialogTrigger asChild>
                     <Button className="bg-primary hover:bg-primary/90 gap-2">
                       <Plus className="w-4 h-4" />
-                      <span className="hidden sm:inline">Post Video</span>
+                      Post Video
                     </Button>
                   </DialogTrigger>
                   <DialogContent className="sm:max-w-[600px] max-h-[90vh] overflow-y-auto">
@@ -117,7 +118,71 @@ const Index = () => {
               )}
               <LoginArea className="max-w-[200px]" />
             </div>
+
+            {/* Mobile Menu Button */}
+            <button
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="md:hidden p-2 rounded-lg text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors"
+              aria-label="Toggle menu"
+            >
+              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
           </div>
+
+          {/* Mobile Menu */}
+          {mobileMenuOpen && (
+            <div className="md:hidden mt-3 pt-3 border-t border-border">
+              <nav className="flex flex-col gap-1 mb-4">
+                <a
+                  href="https://marc.shakespeare.wtf/"
+                  className="flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  <Home className="w-5 h-5" />
+                  Home
+                </a>
+                <a
+                  href="https://primal.net/marc#reads"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  <BookOpen className="w-5 h-5" />
+                  Blog
+                </a>
+                <a
+                  href="https://shopstr.store/npub1marc26z8nh3xkj5rcx7ufkatvx6ueqhp5vfw9v5teq26z254renshtf3g0"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  <ShoppingBag className="w-5 h-5" />
+                  Store
+                </a>
+              </nav>
+              <div className="flex flex-col gap-3 px-4 pb-3">
+                {user && (
+                  <Dialog open={uploadDialogOpen} onOpenChange={(open) => { setUploadDialogOpen(open); if (open) setMobileMenuOpen(false); }}>
+                    <DialogTrigger asChild>
+                      <Button className="w-full bg-primary hover:bg-primary/90 gap-2">
+                        <Plus className="w-4 h-4" />
+                        Post Video
+                      </Button>
+                    </DialogTrigger>
+                    <DialogContent className="sm:max-w-[600px] max-h-[90vh] overflow-y-auto">
+                      <DialogHeader>
+                        <DialogTitle className="sr-only">Post a Video</DialogTitle>
+                      </DialogHeader>
+                      <VideoUploadForm />
+                    </DialogContent>
+                  </Dialog>
+                )}
+                <LoginArea className="flex" />
+              </div>
+            </div>
+          )}
         </div>
       </header>
 
@@ -151,7 +216,7 @@ const Index = () => {
 
         {/* Short Videos Grid */}
         {isLoading && (
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
             {[...Array(10)].map((_, i) => (
               <VideoSkeleton key={i} />
             ))}
@@ -174,7 +239,7 @@ const Index = () => {
         {!isLoading && !error && (
           <>
             {videos && videos.length > 0 ? (
-              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
                 {videos.map((video) => (
                   <VideoCard key={video.event.id} video={video} />
                 ))}
