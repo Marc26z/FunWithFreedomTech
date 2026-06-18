@@ -282,7 +282,7 @@ const Index = () => {
               rel="noopener noreferrer"
               className="text-primary hover:underline"
             >
-              Shakespeare
+              Shakespeare & a pinch of🍝spaghetti code🍝from Marc.
             </a>
           </p>
         </div>
