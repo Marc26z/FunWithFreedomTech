@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useSeoMeta } from '@unhead/react';
-import { Video, Plus, Film, Loader2, BookOpen, ShoppingBag, Home, Menu, X } from 'lucide-react';
+import { Video, Plus, Film, Loader2, BookOpen, ShoppingBag, Home, Menu, X, Heart } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Skeleton } from '@/components/ui/skeleton';
@@ -41,7 +41,7 @@ const Index = () => {
   const { data: videos, isLoading, error } = useVideos();
   
   useSeoMeta({
-    title: "Marc's Freedom Tech Fun",
+    title: "Fun With Freedom Tech",
     description: 'Fun With Freedom Tech',
   });
 
@@ -57,13 +57,14 @@ const Index = () => {
             <div className="flex items-center gap-3">
               <a href="https://marc.shakespeare.wtf/" className="shrink-0">
                 <img
-                  src="/FreedomTech.jpg"
+                  src="/FunWithFreedomTech.png"
                   alt="Freedom Tech"
                   className="w-10 h-10 rounded-xl object-cover"
                 />
               </a>
               <div>
-                <h1 className="text-lg sm:text-xl md:text-2xl font-bold bg-gradient-to-r from-primary to-red-400 bg-clip-text text-transparent">
+                
+ <h1 className="text-lg sm:text-xl md:text-2xl font-bold text-white">
                   Fun With Freedom Tech
                 </h1>
               </div>
@@ -95,6 +96,15 @@ const Index = () => {
               >
                 <ShoppingBag className="w-4 h-4" />
                 Store
+              </a>
+              <a
+                href="https://primal.net/marc/support/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors"
+              >
+                <Heart className="w-4 h-4" />
+                Support
               </a>
             </nav>
 
@@ -160,6 +170,16 @@ const Index = () => {
                 >
                   <ShoppingBag className="w-5 h-5" />
                   Store
+                </a>
+                <a
+                  href="https://primal.net/marc/support/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  <Heart className="w-5 h-5" />
+                  Support
                 </a>
               </nav>
               <div className="flex flex-col gap-3 px-4 pb-3">
