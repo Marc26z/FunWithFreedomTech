@@ -14,8 +14,12 @@ import {
 import { LoginArea } from '@/components/auth/LoginArea';
 import { VideoCard } from '@/components/VideoCard';
 import { VideoUploadForm } from '@/components/VideoUploadForm';
+import { ProfileZapButton } from '@/components/ProfileZapButton';
 import { useVideos } from '@/hooks/useVideos';
 import { useCurrentUser } from '@/hooks/useCurrentUser';
+
+// Marc's pubkey — npub1marc26z8nh3xkj5rcx7ufkatvx6ueqhp5vfw9v5teq26z254renshtf3g0
+const MARC_PUBKEY = 'df478568479de26b4a83c1bdc4dbab61b5cc82e1a312e2b28bc815a12a951e67';
 
 function VideoSkeleton() {
   return (
@@ -89,7 +93,7 @@ const Index = () => {
                 Blog
               </a>
               <a
-                href="https://shopstr.store/npub1marc26z8nh3xkj5rcx7ufkatvx6ueqhp5vfw9v5teq26z254renshtf3g0"
+                href="https://btcpay.funwithfreedomtech.com/apps/ohbN8koRxmVReyGbaurvgQtC5q1/pos"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors"
@@ -232,6 +236,9 @@ const Index = () => {
               Welcome To The Free Internet.
             </a>
           </h3>
+          <div className="flex justify-center pt-2">
+            <ProfileZapButton pubkey={MARC_PUBKEY} />
+          </div>
         </div>
 
         {/* Short Videos Grid */}
