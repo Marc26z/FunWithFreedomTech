@@ -15,6 +15,7 @@ import { LoginArea } from '@/components/auth/LoginArea';
 import { VideoCard } from '@/components/VideoCard';
 import { VideoUploadForm } from '@/components/VideoUploadForm';
 import { ProfileZapButton } from '@/components/ProfileZapButton';
+import { FreedomTechStats } from '@/components/FreedomTechStats';
 import { useVideos } from '@/hooks/useVideos';
 import { useCurrentUser } from '@/hooks/useCurrentUser';
 
@@ -84,7 +85,7 @@ const Index = () => {
                 Home
               </a>
               <a
-                href="https://primal.net/marc#reads"
+                href="https://staging-funwithfreedomtechblog.shakespeare.wtf/npub1marc26z8nh3xkj5rcx7ufkatvx6ueqhp5vfw9v5teq26z254renshtf3g0"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors"
@@ -156,7 +157,7 @@ const Index = () => {
                   Home
                 </a>
                 <a
-                  href="https://primal.net/marc#reads"
+                  href="https://staging-funwithfreedomtechblog.shakespeare.wtf/npub1marc26z8nh3xkj5rcx7ufkatvx6ueqhp5vfw9v5teq26z254renshtf3g0"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors"
@@ -218,6 +219,9 @@ const Index = () => {
           className="w-full max-h-[400px] object-cover"
         />
       </div>
+
+      {/* Live Stats */}
+      <FreedomTechStats />
 
       {/* Main Content */}
       <main className="container mx-auto px-4 py-8">
