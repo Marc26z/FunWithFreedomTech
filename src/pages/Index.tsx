@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useSeoMeta } from '@unhead/react';
-import { Video, Plus, Film, Loader2, BookOpen, ShoppingBag, Home, Menu, X, Heart } from 'lucide-react';
+import { Video, Plus, Film, Loader2, BookOpen, ShoppingBag, Home, Menu, X, Heart, Clock } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Skeleton } from '@/components/ui/skeleton';
@@ -103,6 +103,15 @@ const Index = () => {
                 Store
               </a>
               <a
+                href="https://timestamper.funwithfreedomtech.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors"
+              >
+                <Clock className="w-4 h-4" />
+                Timestamper
+              </a>
+              <a
                 href="https://primal.net/marc/support/"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -175,6 +184,16 @@ const Index = () => {
                 >
                   <ShoppingBag className="w-5 h-5" />
                   Store
+                </a>
+                <a
+                  href="https://timestamper.funwithfreedomtech.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  <Clock className="w-5 h-5" />
+                  Timestamper
                 </a>
                 <a
                   href="https://primal.net/marc/support/"
