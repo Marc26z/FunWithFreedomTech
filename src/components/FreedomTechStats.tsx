@@ -89,38 +89,51 @@ export function FreedomTechStats() {
     return () => { cancelled = true; clearInterval(interval); };
   }, []);
 
-  // Fetch Nostr live user count via nostrarchives WebSocket
+  // Fetch live Nostr user count via nostrarchives WebSocket
+  // Payload shape: { online: number, sats: number, notes: number }
   useEffect(() => {
     let ws: WebSocket | null = null;
     let reconnectTimer: ReturnType<typeof setTimeout>;
     let cancelled = false;
+    let retries = 0;
+    const RECONNECT_DELAYS = [1000, 2000, 4000, 8000, 16000];
 
     function connect() {
       if (cancelled) return;
       try {
         ws = new WebSocket('wss://api.nostrarchives.com/v1/ws/live-metrics');
 
+        ws.onopen = () => { retries = 0; };
+
         ws.onmessage = (e) => {
           if (cancelled) return;
           try {
-            const data = JSON.parse(e.data);
-            if (typeof data.online_users === 'number') {
-              setStats((prev) => ({ ...prev, nostrUsers: data.online_users }));
-            } else if (typeof data.active_pubkeys === 'number') {
-              setStats((prev) => ({ ...prev, nostrUsers: data.active_pubkeys }));
+            const data = JSON.parse(e.data as string);
+            // The API returns { online, sats, notes } per the nostrarchives docs
+            if (typeof data.online === 'number') {
+              setStats((prev) => ({ ...prev, nostrUsers: data.online }));
             }
           } catch {
-            // ignore parse errors
+            // ignore non-JSON pings
           }
         };
 
         ws.onerror = () => { ws?.close(); };
 
         ws.onclose = () => {
-          if (!cancelled) reconnectTimer = setTimeout(connect, 5000);
+          ws = null;
+          if (!cancelled) {
+            const delay = RECONNECT_DELAYS[Math.min(retries, RECONNECT_DELAYS.length - 1)];
+            retries++;
+            reconnectTimer = setTimeout(connect, delay);
+          }
         };
       } catch {
-        if (!cancelled) reconnectTimer = setTimeout(connect, 5000);
+        if (!cancelled) {
+          const delay = RECONNECT_DELAYS[Math.min(retries, RECONNECT_DELAYS.length - 1)];
+          retries++;
+          reconnectTimer = setTimeout(connect, delay);
+        }
       }
     }
 
