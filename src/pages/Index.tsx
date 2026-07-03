@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useSeoMeta } from '@unhead/react';
-import { Video, Plus, Film, Loader2, BookOpen, ShoppingBag, Home, Menu, X, Heart, Clock, Bitcoin, CreditCard } from 'lucide-react';
+import { Video, Plus, Film, Loader2, BookOpen, ShoppingBag, Home, Menu, X, Heart, Clock, Bitcoin, CreditCard, Github } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Skeleton } from '@/components/ui/skeleton';
@@ -130,6 +130,15 @@ const Index = () => {
                 Turn Bitcoin Into a Greeting Card
               </a>
               <a
+                href="https://github.com/Marc26z/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors"
+              >
+                <Github className="w-4 h-4" />
+                GitHub
+              </a>
+              <a
                 href="https://primal.net/marc/support/"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -232,6 +241,16 @@ const Index = () => {
                 >
                   <CreditCard className="w-5 h-5" />
                   Turn Bitcoin Into a Greeting Card
+                </a>
+                <a
+                  href="https://github.com/Marc26z/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  <Github className="w-5 h-5" />
+                  GitHub
                 </a>
                 <a
                   href="https://primal.net/marc/support/"
