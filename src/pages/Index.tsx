@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useSeoMeta } from '@unhead/react';
-import { Video, Plus, Film, Loader2, BookOpen, ShoppingBag, Home, Menu, X, Heart, Clock, Bitcoin, CreditCard, Github } from 'lucide-react';
+import { Video, Plus, Film, Loader2, BookOpen, ShoppingBag, Home, Menu, X, Heart, Clock, Bitcoin, CreditCard, Github, Link } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Skeleton } from '@/components/ui/skeleton';
@@ -139,6 +139,15 @@ const Index = () => {
                 GitHub
               </a>
               <a
+                href="https://nostrlinks.shakespeare.wtf/naddr1qvzqqqr4xvpzph68s45y080zdd9g8sdacnd6kcd4ejpwrgcju2eghjq45y4f28n8qqkxummnw3ex2efdvven2ef3xc6rztfcxdjrytf5vsmxzttpxqurstf48qmrxetxxu6kxvmzxvk5uv0h"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors"
+              >
+                <Link className="w-4 h-4" />
+                Nostr Links
+              </a>
+              <a
                 href="https://primal.net/marc/support/"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -251,6 +260,16 @@ const Index = () => {
                 >
                   <Github className="w-5 h-5" />
                   GitHub
+                </a>
+                <a
+                  href="https://nostrlinks.shakespeare.wtf/naddr1qvzqqqr4xvpzph68s45y080zdd9g8sdacnd6kcd4ejpwrgcju2eghjq45y4f28n8qqkxummnw3ex2efdvven2ef3xc6rztfcxdjrytf5vsmxzttpxqurstf48qmrxetxxu6kxvmzxvk5uv0h"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  <Link className="w-5 h-5" />
+                  Nostr Links
                 </a>
                 <a
                   href="https://primal.net/marc/support/"
