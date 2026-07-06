@@ -8,10 +8,9 @@ interface Stats {
   nostrUsers: number | null;
 }
 
-const CORS_PROXY = 'https://proxy.shakespeare.diy/?url=';
-
+// mempool.space supports CORS natively — no proxy needed
 async function fetchJSON(url: string) {
-  const res = await fetch(CORS_PROXY + encodeURIComponent(url));
+  const res = await fetch(url, { signal: AbortSignal.timeout(10000) });
   if (!res.ok) throw new Error(`HTTP ${res.status}`);
   return res.json();
 }
@@ -60,7 +59,7 @@ export function FreedomTechStats() {
     async function load() {
       try {
         const [heightRes, priceData, feeData] = await Promise.all([
-          fetch(CORS_PROXY + encodeURIComponent('https://mempool.space/api/blocks/tip/height'))
+          fetch('https://mempool.space/api/blocks/tip/height', { signal: AbortSignal.timeout(10000) })
             .then((r) => r.text()),
           fetchJSON('https://mempool.space/api/v1/prices'),
           fetchJSON('https://mempool.space/api/v1/fees/recommended'),
@@ -85,7 +84,7 @@ export function FreedomTechStats() {
     }
 
     load();
-    const interval = setInterval(load, 60_000); // refresh every minute
+    const interval = setInterval(load, 3 * 60_000); // refresh every 3 minutes
     return () => { cancelled = true; clearInterval(interval); };
   }, []);
 
