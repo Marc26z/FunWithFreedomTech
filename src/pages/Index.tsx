@@ -60,7 +60,7 @@ const Index = () => {
           <div className="flex items-center justify-between">
             {/* Logo and Title */}
             <div className="flex items-center gap-3">
-              <a href="https://marc.shakespeare.wtf/" className="shrink-0">
+              <a href="https://home.funwithfreedomtech.com/" className="shrink-0">
                 <img
                   src="/FunWithFreedomTech.png"
                   alt="Freedom Tech"
@@ -78,14 +78,14 @@ const Index = () => {
             {/* Desktop Navigation */}
             <nav className="hidden md:flex items-center gap-2">
               <a
-                href="https://marc.shakespeare.wtf/"
+                href="https://home.funwithfreedomtech.com/"
                 className="inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors"
               >
                 <Home className="w-4 h-4" />
                 Home
               </a>
               <a
-                href="https://staging-funwithfreedomtechblog.shakespeare.wtf/npub1marc26z8nh3xkj5rcx7ufkatvx6ueqhp5vfw9v5teq26z254renshtf3g0"
+                href="https://primal.net/marc#reads"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors"
@@ -139,7 +139,7 @@ const Index = () => {
                 GitHub
               </a>
               <a
-                href="https://nostrlinks.shakespeare.wtf/naddr1qvzqqqr4xvpzph68s45y080zdd9g8sdacnd6kcd4ejpwrgcju2eghjq45y4f28n8qqkxummnw3ex2efdvven2ef3xc6rztfcxdjrytf5vsmxzttpxqurstf48qmrxetxxu6kxvmzxvk5uv0h"
+                href="https://nostrlinks.funwithfreedomtech.com/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors"
@@ -194,7 +194,7 @@ const Index = () => {
             <div className="md:hidden mt-3 pt-3 border-t border-border">
               <nav className="flex flex-col gap-1 mb-4">
                 <a
-                  href="https://marc.shakespeare.wtf/"
+                  href="https://home.funwithfreedomtech.com/"
                   className="flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors"
                   onClick={() => setMobileMenuOpen(false)}
                 >
