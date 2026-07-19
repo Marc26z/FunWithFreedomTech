@@ -347,11 +347,24 @@ const Index = () => {
             Fun With Freedom Tech Forums
           </h2>
           {/* Replace the nwc-url value with a new NWC connection from your Alby wallet */}
-          <div
-            dangerouslySetInnerHTML={{
-              __html: `<lightning-messageboard nwc-url="REPLACE_WITH_YOUR_NWC_URL"></lightning-messageboard>`,
-            }}
-          />
+          <div className="border-2 border-purple-500 rounded-xl overflow-hidden">
+            <div
+              dangerouslySetInnerHTML={{
+                __html: `<lightning-messageboard
+                  nwc-url="REPLACE_WITH_YOUR_NWC_URL"
+                  theme='{
+                    "primary-color": "#a855f7",
+                    "background-color": "#000000",
+                    "border-color": "#a855f7",
+                    "text-color": "#ffffff",
+                    "text-muted-color": "#999999",
+                    "button-text-color": "#ffffff",
+                    "border-radius": "0.75rem"
+                  }'
+                ></lightning-messageboard>`,
+              }}
+            />
+          </div>
         </div>
 
         {/* Short Videos Grid */}
