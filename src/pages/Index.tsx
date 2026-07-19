@@ -72,8 +72,8 @@ const Index = () => {
             <div className="flex items-center gap-3">
               <a href="https://home.funwithfreedomtech.com/" className="shrink-0">
                 <img
-                  src="/FunWithFreedomTech.png"
-                  alt="Freedom Tech"
+                  src="/FunWithFreedomTechLogo.png"
+                  alt="Fun With Freedom Tech"
                   className="w-10 h-10 rounded-xl object-cover"
                 />
               </a>
@@ -310,7 +310,7 @@ const Index = () => {
       {/* Banner */}
       <div className="w-full">
         <img
-          src="/FunWithFreedomTech.png"
+          src="/FunWithFreedomTechLogo.png"
           alt="Fun With Freedom Tech"
           className="w-full max-h-[400px] object-cover"
         />
