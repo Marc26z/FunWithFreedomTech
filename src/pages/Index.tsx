@@ -308,11 +308,11 @@ const Index = () => {
       </header>
 
       {/* Banner */}
-      <div className="w-full">
+      <div className="w-full flex justify-center bg-background py-4">
         <img
           src="/FunWithFreedomTechLogo.png"
           alt="Fun With Freedom Tech"
-          className="w-full max-h-[400px] object-cover"
+          className="max-h-[280px] w-auto object-contain"
         />
       </div>
 
