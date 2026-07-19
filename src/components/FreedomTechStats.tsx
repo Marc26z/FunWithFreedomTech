@@ -158,20 +158,20 @@ export function FreedomTechStats() {
           label="Sats per Monopoly Money Buck"
           value={stats.satsPerDollar !== null ? stats.satsPerDollar.toLocaleString() : null}
           unit="sats/$"
-          color="bg-primary"
+          color="bg-[#cc0000]"
         />
         <StatCard
           icon={Gauge}
           label="Medium Priority Fee"
           value={stats.mediumFee !== null ? String(stats.mediumFee) : null}
           unit="sat/vB"
-          color="bg-primary"
+          color="bg-[#cc0000]"
         />
         <StatCard
           icon={Users}
           label="People on Nostr Right Now"
           value={stats.nostrUsers !== null ? stats.nostrUsers.toLocaleString() : null}
-          color="bg-primary"
+          color="bg-[#cc0000]"
         />
       </div>
     </div>

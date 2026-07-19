@@ -331,7 +331,7 @@ const Index = () => {
               href="https://nostr.org/" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="text-primary hover:text-primary/80 hover:underline transition-colors"
+              className="text-[#cc0000] hover:text-[#cc0000]/80 hover:underline transition-colors"
             >
               Welcome To The Free Internet.
             </a>
