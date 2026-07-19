@@ -16,6 +16,7 @@ import { VideoCard } from '@/components/VideoCard';
 import { VideoUploadForm } from '@/components/VideoUploadForm';
 import { ProfileZapButton } from '@/components/ProfileZapButton';
 import { FreedomTechStats } from '@/components/FreedomTechStats';
+import { RecentBlogPosts } from '@/components/RecentBlogPosts';
 import { useVideos } from '@/hooks/useVideos';
 import { useCurrentUser } from '@/hooks/useCurrentUser';
 
@@ -351,6 +352,9 @@ Fun With Freedom Tech
             />
           </div>
         </div>
+
+        {/* Latest Blog Posts */}
+        <RecentBlogPosts />
 
         {/* Short Videos Grid */}
         {isLoading && (
