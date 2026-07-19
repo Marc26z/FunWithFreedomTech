@@ -305,7 +305,7 @@ const Index = () => {
       <main className="container mx-auto px-4 py-8">
         {/* Hero Section */}
         <div className="mb-8 text-center space-y-4">
-          <h2 className="text-2xl md:text-3xl font-semibold text-foreground max-w-2xl mx-auto">
+          <h2 className="text-2xl md:text-3xl font-semibold text-[#484dd4] max-w-2xl mx-auto">
 Fun With Freedom Tech
           </h2>
           <h3 className="text-xl md:text-2xl">
@@ -328,7 +328,7 @@ Fun With Freedom Tech
 
         {/* Forum Section */}
         <div className="mb-10">
-          <h2 className="text-2xl md:text-3xl font-semibold text-center mb-6">
+          <h2 className="text-2xl md:text-3xl font-semibold text-[#484dd4] text-center mb-6">
             Fun With Freedom Tech Message Board
           </h2>
           {/* Replace the nwc-url value with a new NWC connection from your Alby wallet */}
