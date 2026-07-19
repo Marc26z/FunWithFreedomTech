@@ -4,7 +4,7 @@
 
 @layer base {
   :root {
-    /* Dark theme by default - Black (#000000) and Red (#cc0000) */
+    /* Dark theme - Black (#000000) and Blue-Purple (#484dd4) */
     --background: 0 0% 0%;
     --foreground: 0 0% 95%;
 
@@ -14,7 +14,7 @@
     --popover: 0 0% 6%;
     --popover-foreground: 0 0% 95%;
 
-    --primary: 0 100% 40%;
+    --primary: 238 62% 56%;
     --primary-foreground: 0 0% 100%;
 
     --secondary: 0 0% 12%;
@@ -23,7 +23,7 @@
     --muted: 0 0% 15%;
     --muted-foreground: 0 0% 65%;
 
-    --accent: 0 100% 40%;
+    --accent: 238 62% 56%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
@@ -31,18 +31,18 @@
 
     --border: 0 0% 18%;
     --input: 0 0% 18%;
-    --ring: 0 100% 40%;
+    --ring: 238 62% 56%;
 
     --radius: 0.75rem;
 
     --sidebar-background: 0 0% 4%;
     --sidebar-foreground: 0 0% 90%;
-    --sidebar-primary: 0 100% 40%;
+    --sidebar-primary: 238 62% 56%;
     --sidebar-primary-foreground: 0 0% 100%;
     --sidebar-accent: 0 0% 12%;
     --sidebar-accent-foreground: 0 0% 95%;
     --sidebar-border: 0 0% 18%;
-    --sidebar-ring: 0 100% 40%;
+    --sidebar-ring: 238 62% 56%;
   }
 
   .dark {
@@ -55,7 +55,7 @@
     --popover: 0 0% 6%;
     --popover-foreground: 0 0% 95%;
 
-    --primary: 0 100% 40%;
+    --primary: 238 62% 56%;
     --primary-foreground: 0 0% 100%;
 
     --secondary: 0 0% 12%;
@@ -64,7 +64,7 @@
     --muted: 0 0% 15%;
     --muted-foreground: 0 0% 65%;
 
-    --accent: 0 100% 40%;
+    --accent: 238 62% 56%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
@@ -72,15 +72,15 @@
 
     --border: 0 0% 18%;
     --input: 0 0% 18%;
-    --ring: 0 100% 40%;
+    --ring: 238 62% 56%;
     --sidebar-background: 0 0% 4%;
     --sidebar-foreground: 0 0% 90%;
-    --sidebar-primary: 0 100% 40%;
+    --sidebar-primary: 238 62% 56%;
     --sidebar-primary-foreground: 0 0% 100%;
     --sidebar-accent: 0 0% 12%;
     --sidebar-accent-foreground: 0 0% 95%;
     --sidebar-border: 0 0% 18%;
-    --sidebar-ring: 0 100% 40%;
+    --sidebar-ring: 238 62% 56%;
   }
 }
 

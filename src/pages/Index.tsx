@@ -70,7 +70,7 @@ const Index = () => {
           <div className="flex items-center justify-between">
             {/* Logo and Title */}
             <div className="flex items-center gap-3">
-              <a href="https://home.funwithfreedomtech.com/" className="shrink-0">
+              <a href="https://funwithfreedomtech.com/" className="shrink-0">
                 <img
                   src="/FunWithFreedomTechLogo.png"
                   alt="Fun With Freedom Tech"
@@ -79,16 +79,16 @@ const Index = () => {
               </a>
               <div>
                 
- <h1 className="text-lg sm:text-xl md:text-2xl font-bold text-white">
-                  Fun With Freedom Tech
-                </h1>
+ <h1 className="text-lg sm:text-xl md:text-2xl font-bold text-[#484dd4]">
+                   Fun With Freedom Tech
+                 </h1>
               </div>
             </div>
             
             {/* Desktop Navigation */}
             <nav className="hidden md:flex items-center gap-2">
               <a
-                href="https://home.funwithfreedomtech.com/"
+                href="https://funwithfreedomtech.com/"
                 className="inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors"
               >
                 <Home className="w-4 h-4" />
@@ -113,25 +113,7 @@ const Index = () => {
                 Store
               </a>
               <a
-                href="https://lightningtipjar.funwithfreedomtech.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors"
-              >
-                <Bitcoin className="w-4 h-4" />
-                Make A Bitcoin Tip Jar
-              </a>
-              <a
-                href="https://cashucards.shakespeare.wtf/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors"
-              >
-                <CreditCard className="w-4 h-4" />
-                Turn Bitcoin Into a Greeting Card
-              </a>
-              <a
-                href="https://github.com/Marc26z/"
+                href="https://github.com/Marc26z/FunWithFreedomTech"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors"
@@ -140,7 +122,7 @@ const Index = () => {
                 GitHub
               </a>
               <a
-                href="https://nostrlinks.funwithfreedomtech.com/naddr1qvzqqqr4xvpzph68s45y080zdd9g8sdacnd6kcd4ejpwrgcju2eghjq45y4f28n8qqkxummnw3ex2efdvven2ef3xc6rztfcxdjrytf5vsmxzttpxqurstf48qmrxetxxu6kxvmzxvk5uv0h/"
+                href="https://nostrlinks.funwithfreedomtech.com/naddr1qvzqqqr4xvpzph68s45y080zdd9g8sdacnd6kcd4ejpwrgcju2eghjq45y4f28n8qqkxummnw3ex2efdvven2ef3xc6rztfcxdjrytf5vsmxzttpxqurstf48qmrxetxxu6kxvmzxvk5uv0h"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors"
@@ -195,7 +177,7 @@ const Index = () => {
             <div className="md:hidden mt-3 pt-3 border-t border-border">
               <nav className="flex flex-col gap-1 mb-4">
                 <a
-                  href="https://home.funwithfreedomtech.com/"
+                  href="httpsfunwithfreedomtech.com/"
                   className="flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors"
                   onClick={() => setMobileMenuOpen(false)}
                 >
@@ -203,7 +185,7 @@ const Index = () => {
                   Home
                 </a>
                 <a
-                  href="https://staging-funwithfreedomtechblog.shakespeare.wtf/npub1marc26z8nh3xkj5rcx7ufkatvx6ueqhp5vfw9v5teq26z254renshtf3g0"
+                  href="https://funwithfreedomtech.com/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors"
@@ -324,18 +306,21 @@ const Index = () => {
         {/* Hero Section */}
         <div className="mb-8 text-center space-y-4">
           <h2 className="text-2xl md:text-3xl font-semibold text-foreground max-w-2xl mx-auto">
-            Fun With Freedom Tech
+Fun With Freedom Tech
           </h2>
           <h3 className="text-xl md:text-2xl">
             <a 
               href="https://nostr.org/" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="text-[#cc0000] hover:text-[#cc0000]/80 hover:underline transition-colors"
+              className="text-[#484dd4] hover:text-[#484dd4]/80 hover:underline transition-colors"
             >
-              Welcome To The Free Internet.
+              Have Fun Staying Free.
             </a>
           </h3>
+          <p className="text-[#484dd4] font-semibold text-lg">
+            Thank you for visiting.
+          </p>
           <div className="flex justify-center pt-2">
             <ProfileZapButton pubkey={MARC_PUBKEY} />
           </div>
@@ -344,21 +329,21 @@ const Index = () => {
         {/* Forum Section */}
         <div className="mb-10">
           <h2 className="text-2xl md:text-3xl font-semibold text-center mb-6">
-            Fun With Freedom Tech Forums
+            Fun With Freedom Tech Message Board
           </h2>
           {/* Replace the nwc-url value with a new NWC connection from your Alby wallet */}
-          <div className="border-2 border-purple-500 rounded-xl overflow-hidden">
+          <div className="border-2 border-[#484dd4] rounded-xl overflow-hidden">
             <div
               dangerouslySetInnerHTML={{
                 __html: `<lightning-messageboard
-                  nwc-url="REPLACE_WITH_YOUR_NWC_URL"
+                  nwc-url="nostr+walletconnect://f96c53d55cda6b3603fb96266c3d8c8ce930b20c89d6e3766819365f2c112b46?relay=wss://relay.getalby.com&relay=wss://relay2.getalby.com&secret=b6163938675a64c868838a1c769e99bd77e252c93547cfc46d03f0877ad87ac2"
                   theme='{
-                    "primary-color": "#a855f7",
+                    "primary-color": "#484dd4",
                     "background-color": "#000000",
-                    "border-color": "#a855f7",
-                    "text-color": "#ffffff",
+                    "border-color": "#484dd4",
+                    "text-color": "#484dd4",
                     "text-muted-color": "#999999",
-                    "button-text-color": "#ffffff",
+                    "button-text-color": "#484dd4",
                     "border-radius": "0.75rem"
                   }'
                 ></lightning-messageboard>`,
@@ -415,7 +400,7 @@ const Index = () => {
               rel="noopener noreferrer"
               className="text-primary hover:underline"
             >
-              Shakespeare & a pinch of🍝spaghetti code🍝from Marc.
+              Shakespeare & a pinch of🍝 code from npub1marc26z8nh3xkj5rcx7ufkatvx6ueqhp5vfw9v5teq26z254renshtf3g0
             </a>
           </p>
         </div>
