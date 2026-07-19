@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useSeoMeta } from '@unhead/react';
 import { Video, Plus, Film, Loader2, BookOpen, ShoppingBag, Home, Menu, X, Heart, Clock, Bitcoin, CreditCard, Github, Link } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -43,6 +43,16 @@ const Index = () => {
   const [uploadDialogOpen, setUploadDialogOpen] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { user } = useCurrentUser();
+
+  // Load the lightning-messageboard custom element
+  useEffect(() => {
+    if (document.querySelector('script[data-messageboard]')) return;
+    const script = document.createElement('script');
+    script.type = 'module';
+    script.src = 'https://esm.sh/@getalby/lightning-messageboard@latest';
+    script.setAttribute('data-messageboard', 'true');
+    document.head.appendChild(script);
+  }, []);
   const { data: videos, isLoading, error } = useVideos();
   
   useSeoMeta({
@@ -85,7 +95,7 @@ const Index = () => {
                 Home
               </a>
               <a
-                href="https://primal.net/marc#reads"
+                href="https://wordstr.funwithfreedomtech.com/npub1marc26z8nh3xkj5rcx7ufkatvx6ueqhp5vfw9v5teq26z254renshtf3g0/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors"
@@ -103,16 +113,7 @@ const Index = () => {
                 Store
               </a>
               <a
-                href="https://timestamper.funwithfreedomtech.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors"
-              >
-                <Clock className="w-4 h-4" />
-                Timestamper
-              </a>
-              <a
-                href="https://lightningtipjar.shakespeare.wtf/"
+                href="https://lightningtipjar.funwithfreedomtech.com/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors"
@@ -139,7 +140,7 @@ const Index = () => {
                 GitHub
               </a>
               <a
-                href="https://nostrlinks.funwithfreedomtech.com/"
+                href="https://nostrlinks.funwithfreedomtech.com/naddr1qvzqqqr4xvpzph68s45y080zdd9g8sdacnd6kcd4ejpwrgcju2eghjq45y4f28n8qqkxummnw3ex2efdvven2ef3xc6rztfcxdjrytf5vsmxzttpxqurstf48qmrxetxxu6kxvmzxvk5uv0h/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors"
@@ -338,6 +339,19 @@ const Index = () => {
           <div className="flex justify-center pt-2">
             <ProfileZapButton pubkey={MARC_PUBKEY} />
           </div>
+        </div>
+
+        {/* Forum Section */}
+        <div className="mb-10">
+          <h2 className="text-2xl md:text-3xl font-semibold text-center mb-6">
+            Fun With Freedom Tech Forums
+          </h2>
+          {/* Replace the nwc-url value with a new NWC connection from your Alby wallet */}
+          <div
+            dangerouslySetInnerHTML={{
+              __html: `<lightning-messageboard nwc-url="REPLACE_WITH_YOUR_NWC_URL"></lightning-messageboard>`,
+            }}
+          />
         </div>
 
         {/* Short Videos Grid */}
