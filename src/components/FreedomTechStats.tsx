@@ -151,7 +151,7 @@ export function FreedomTechStats() {
           icon={Bitcoin}
           label="Block Height"
           value={stats.blockHeight !== null ? stats.blockHeight.toLocaleString() : null}
-          color="bg-primary"
+          color="bg-[#F7931A]"
         />
         <StatCard
           icon={Zap}
