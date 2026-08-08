@@ -19,7 +19,7 @@ import { FreedomTechStats } from '@/components/FreedomTechStats';
 import { RecentBlogPosts } from '@/components/RecentBlogPosts';
 import { useVideos } from '@/hooks/useVideos';
 import { useCurrentUser } from '@/hooks/useCurrentUser';
-
+ 
 // Marc's pubkey — npub1marc26z8nh3xkj5rcx7ufkatvx6ueqhp5vfw9v5teq26z254renshtf3g0
 const MARC_PUBKEY = 'df478568479de26b4a83c1bdc4dbab61b5cc82e1a312e2b28bc815a12a951e67';
 
@@ -79,6 +79,7 @@ const Index = () => {
                 />
               </a>
               <div>
+
                 
  <h1 className="text-lg sm:text-xl md:text-2xl font-bold text-[#484dd4]">
                    Fun With Freedom Tech
@@ -105,13 +106,13 @@ const Index = () => {
                 Blog
               </a>
               <a
-                href="https://btcpay.funwithfreedomtech.com/apps/ohbN8koRxmVReyGbaurvgQtC5q1/pos"
+                href="https://njump.to/nevent1qqs9u2n8mrlx28z7q47rvtztudhpntpwczhkesvydupghm75plegndspzpmhxue69uhkummnw3ezumt0d5hsygzsm98u9kzcp35zkpc62shck8335gqtq5yt4w26xwl0pp2a72qavvpsgqqqqqqsu9nqq8"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors"
               >
                 <ShoppingBag className="w-4 h-4" />
-                Store
+                Support Down do to BTCpayServer Bug
               </a>
               <a
                 href="https://github.com/Marc26z/FunWithFreedomTech"
@@ -132,13 +133,13 @@ const Index = () => {
                 Nostr Links
               </a>
               <a
-                href="https://primal.net/marc/support/"
+                href="https://njump.to/nevent1qqs9u2n8mrlx28z7q47rvtztudhpntpwczhkesvydupghm75plegndspzpmhxue69uhkummnw3ezumt0d5hsygzsm98u9kzcp35zkpc62shck8335gqtq5yt4w26xwl0pp2a72qavvpsgqqqqqqsu9nqq8"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors"
               >
                 <Heart className="w-4 h-4" />
-                Support
+                Important BTCpayServer Message From Calle
               </a>
             </nav>
 
@@ -196,7 +197,7 @@ const Index = () => {
                   Blog
                 </a>
                 <a
-                  href="https://shopstr.store/npub1marc26z8nh3xkj5rcx7ufkatvx6ueqhp5vfw9v5teq26z254renshtf3g0"
+                  href="https://funwithfreedomtech.com/store"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors"
@@ -319,8 +320,8 @@ Fun With Freedom Tech
               Have Fun Staying Free.
             </a>
           </h3>
-          <p className="text-[#484dd4] font-semibold text-lg">
-            Thank you for visiting.
+          <p className="text-[#ffffff] font-semibold text-lg">
+            I make art to showcase technology dictators can't stop.
           </p>
           <div className="flex justify-center pt-2">
             <ProfileZapButton pubkey={MARC_PUBKEY} />
@@ -330,7 +331,7 @@ Fun With Freedom Tech
         {/* Forum Section */}
         <div className="mb-10">
           <h2 className="text-2xl md:text-3xl font-semibold text-[#484dd4] text-center mb-6">
-            Fun With Freedom Tech Message Board
+             Have Fun Writing On My Board
           </h2>
           {/* Replace the nwc-url value with a new NWC connection from your Alby wallet */}
           <div className="border-2 border-[#484dd4] rounded-xl overflow-hidden">
@@ -342,7 +343,7 @@ Fun With Freedom Tech
                     "primary-color": "#484dd4",
                     "background-color": "#000000",
                     "border-color": "#484dd4",
-                    "text-color": "#484dd4",
+                    "text-color": "#ffffff",
                     "text-muted-color": "#999999",
                     "button-text-color": "#484dd4",
                     "border-radius": "0.75rem"
@@ -404,9 +405,12 @@ Fun With Freedom Tech
               rel="noopener noreferrer"
               className="text-primary hover:underline"
             >
-              Shakespeare & a pinch of🍝 code from npub1marc26z8nh3xkj5rcx7ufkatvx6ueqhp5vfw9v5teq26z254renshtf3g0
+              Shakespeare & 🍝 code from Marc
             </a>
           </p>
+    <p>
+        <a href="https://primal.net/marc">npub1marc26z8nh3xkj5rcx7ufkatvx6ueqhp5vfw9v5teq26z254renshtf3g0</a>
+    </p>
         </div>
       </footer>
     </div>

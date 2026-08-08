@@ -155,7 +155,7 @@ export function FreedomTechStats() {
         />
         <StatCard
           icon={Zap}
-          label="Sats per Monopoly Money Buck"
+          label="How Many Sats Does A Dollar Cost?"
           value={stats.satsPerDollar !== null ? stats.satsPerDollar.toLocaleString() : null}
           unit="sats/$"
           color="bg-[#484dd4]"
