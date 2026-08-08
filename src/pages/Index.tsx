@@ -132,15 +132,7 @@ const Index = () => {
                 <Link className="w-4 h-4" />
                 Nostr Links
               </a>
-              <a
-                href="https://njump.to/nevent1qqs9u2n8mrlx28z7q47rvtztudhpntpwczhkesvydupghm75plegndspzpmhxue69uhkummnw3ezumt0d5hsygzsm98u9kzcp35zkpc62shck8335gqtq5yt4w26xwl0pp2a72qavvpsgqqqqqqsu9nqq8"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors"
-              >
-                <Heart className="w-4 h-4" />
-                Important BTCpayServer Message From Calle
-              </a>
+
             </nav>
 
             {/* Desktop Actions */}
