@@ -112,7 +112,7 @@ const Index = () => {
                 className="inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors"
               >
                 <ShoppingBag className="w-4 h-4" />
-                Support Down do to BTCpayServer Bug
+                Support
               </a>
               <a
                 href="https://github.com/Marc26z/FunWithFreedomTech"
@@ -249,7 +249,7 @@ const Index = () => {
                   Nostr Links
                 </a>
                 <a
-                  href="https://primal.net/marc/support/"
+                  href="https://btcpay.funwithfreedomtech.com/apps/9UT7XBHWVKJhbSZhfthKgV96on2/pos"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors"
