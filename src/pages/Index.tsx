@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useSeoMeta } from '@unhead/react';
-import { Video, Plus, Film, Loader2, BookOpen, ShoppingBag, Home, Menu, X, Heart, Clock, Bitcoin, CreditCard, Github, Link } from 'lucide-react';
+import { Video, Plus, Film, Loader2, BookOpen, ShoppingBag, Home, Menu, X, Github, Link } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Skeleton } from '@/components/ui/skeleton';
@@ -106,7 +106,7 @@ const Index = () => {
                 Blog
               </a>
               <a
-                href="https://njump.to/nevent1qqs9u2n8mrlx28z7q47rvtztudhpntpwczhkesvydupghm75plegndspzpmhxue69uhkummnw3ezumt0d5hsygzsm98u9kzcp35zkpc62shck8335gqtq5yt4w26xwl0pp2a72qavvpsgqqqqqqsu9nqq8"
+                href="https://btcpay.funwithfreedomtech.com/apps/9UT7XBHWVKJhbSZhfthKgV96on2/pos"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors"
@@ -124,13 +124,13 @@ const Index = () => {
                 GitHub
               </a>
               <a
-                href="https://nostrlinks.funwithfreedomtech.com/naddr1qvzqqqr4xvpzph68s45y080zdd9g8sdacnd6kcd4ejpwrgcju2eghjq45y4f28n8qqkxummnw3ex2efdvven2ef3xc6rztfcxdjrytf5vsmxzttpxqurstf48qmrxetxxu6kxvmzxvk5uv0h"
+                href="https://art.funwithfreedomtech.com/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors"
               >
                 <Link className="w-4 h-4" />
-                Nostr Links
+                Art
               </a>
 
             </nav>
@@ -171,7 +171,7 @@ const Index = () => {
             <div className="md:hidden mt-3 pt-3 border-t border-border">
               <nav className="flex flex-col gap-1 mb-4">
                 <a
-                  href="httpsfunwithfreedomtech.com/"
+                  href="https://funwithfreedomtech.com/"
                   className="flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors"
                   onClick={() => setMobileMenuOpen(false)}
                 >
@@ -179,7 +179,7 @@ const Index = () => {
                   Home
                 </a>
                 <a
-                  href="https://funwithfreedomtech.com/"
+                  href="https://wordstr.funwithfreedomtech.com/npub1marc26z8nh3xkj5rcx7ufkatvx6ueqhp5vfw9v5teq26z254renshtf3g0/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors"
@@ -189,47 +189,17 @@ const Index = () => {
                   Blog
                 </a>
                 <a
-                  href="https://funwithfreedomtech.com/store"
+                  href="https://btcpay.funwithfreedomtech.com/apps/9UT7XBHWVKJhbSZhfthKgV96on2/pos"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   <ShoppingBag className="w-5 h-5" />
-                  Store
+                  Support
                 </a>
                 <a
-                  href="https://timestamper.funwithfreedomtech.com/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  <Clock className="w-5 h-5" />
-                  Timestamper
-                </a>
-                <a
-                  href="https://lightningtipjar.shakespeare.wtf/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  <Bitcoin className="w-5 h-5" />
-                  Make A Bitcoin Tip Jar
-                </a>
-                <a
-                  href="https://cashucards.shakespeare.wtf/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  <CreditCard className="w-5 h-5" />
-                  Turn Bitcoin Into a Greeting Card
-                </a>
-                <a
-                  href="https://github.com/Marc26z/"
+                  href="https://github.com/Marc26z/FunWithFreedomTech"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors"
@@ -239,24 +209,14 @@ const Index = () => {
                   GitHub
                 </a>
                 <a
-                  href="https://nostrlinks.shakespeare.wtf/naddr1qvzqqqr4xvpzph68s45y080zdd9g8sdacnd6kcd4ejpwrgcju2eghjq45y4f28n8qqkxummnw3ex2efdvven2ef3xc6rztfcxdjrytf5vsmxzttpxqurstf48qmrxetxxu6kxvmzxvk5uv0h"
+                  href="https://art.funwithfreedomtech.com/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   <Link className="w-5 h-5" />
-                  Nostr Links
-                </a>
-                <a
-                  href="https://btcpay.funwithfreedomtech.com/apps/9UT7XBHWVKJhbSZhfthKgV96on2/pos"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  <Heart className="w-5 h-5" />
-                  Support
+                  Art
                 </a>
               </nav>
               <div className="flex flex-col gap-3 px-4 pb-3">
