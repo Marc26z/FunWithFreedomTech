@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useSeoMeta } from '@unhead/react';
-import { Video, Plus, Film, Loader2, BookOpen, ShoppingBag, Home, Menu, X, Github, Link } from 'lucide-react';
+import { Video, Plus, Film, Loader2, BookOpen, ShoppingBag, Home, Menu, X, Github, Link, Wrench } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Skeleton } from '@/components/ui/skeleton';
@@ -132,6 +132,15 @@ const Index = () => {
                 <Link className="w-4 h-4" />
                 Art
               </a>
+              <a
+                href="https://nostrlinks.funwithfreedomtech.com/naddr1qvzqqqr4xvpzph68s45y080zdd9g8sdacnd6kcd4ejpwrgcju2eghjq45y4f28n8qqkxummnw3ex2efdvymnqd3jxajxgtfc8ycrvtf5v3jngtfcvcuxxtfcxvmnye3c89jrzctyv5m079ck"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors"
+              >
+                <Wrench className="w-4 h-4" />
+                ToolBox
+              </a>
 
             </nav>
 
@@ -217,6 +226,16 @@ const Index = () => {
                 >
                   <Link className="w-5 h-5" />
                   Art
+                </a>
+                <a
+                  href="https://nostrlinks.funwithfreedomtech.com/naddr1qvzqqqr4xvpzph68s45y080zdd9g8sdacnd6kcd4ejpwrgcju2eghjq45y4f28n8qqkxummnw3ex2efdvymnqd3jxajxgtfc8ycrvtf5v3jngtfcvcuxxtfcxvmnye3c89jrzctyv5m079ck"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  <Wrench className="w-5 h-5" />
+                  ToolBox
                 </a>
               </nav>
               <div className="flex flex-col gap-3 px-4 pb-3">
