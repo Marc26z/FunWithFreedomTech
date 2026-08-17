@@ -89,6 +89,10 @@
     @apply border-border;
   }
 
+  html {
+    background-color: #000000;
+  }
+
   body {
     @apply bg-background text-foreground;
   }
