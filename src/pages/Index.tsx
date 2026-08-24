@@ -328,6 +328,11 @@ Fun With Freedom Tech
         {/* Latest Blog Posts */}
         <RecentBlogPosts />
 
+        {/* My Divine Videos Header */}
+        <h2 className="text-2xl md:text-3xl font-semibold text-[#484dd4] text-center mt-12 mb-6">
+          My Divine Videos
+        </h2>
+
         {/* Short Videos Grid */}
         {isLoading && (
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
