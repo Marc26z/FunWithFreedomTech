@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react';
 import { useSeoMeta } from '@unhead/react';
-import { Video, Plus, Film, Loader2, BookOpen, ShoppingBag, Home, Menu, X, Github, Link, Wrench } from 'lucide-react';
+import { Video, Plus, Film, Loader2, BookOpen, ShoppingBag, Home, Menu, X, Github, Link, Wrench, Mail, Send } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
+import { Input } from '@/components/ui/input';
 import { Skeleton } from '@/components/ui/skeleton';
 import {
   Dialog,
@@ -22,6 +23,12 @@ import { useCurrentUser } from '@/hooks/useCurrentUser';
  
 // Marc's pubkey — npub1marc26z8nh3xkj5rcx7ufkatvx6ueqhp5vfw9v5teq26z254renshtf3g0
 const MARC_PUBKEY = 'df478568479de26b4a83c1bdc4dbab61b5cc82e1a312e2b28bc815a12a951e67';
+
+// Listmonk newsletter configuration
+// 1. Set LISTMONK_URL to your Listmonk instance URL (e.g. https://listmonk.funwithfreedomtech.com)
+// 2. Set LISTMONK_LIST_UUID to your public list's UUID (found in the Listmonk admin dashboard under Lists)
+const LISTMONK_URL = 'https://listmonk.funwithfreedomtech.com';
+const LISTMONK_LIST_UUID = '';
 
 function VideoSkeleton() {
   return (
@@ -322,6 +329,64 @@ Fun With Freedom Tech
                 ></lightning-messageboard>`,
               }}
             />
+          </div>
+        </div>
+
+        {/* Email Subscribe Section */}
+        <div className="mb-10">
+          <h2 className="text-2xl md:text-3xl font-semibold text-[#484dd4] text-center mb-6">
+            Have Fun Reading My Emails
+          </h2>
+          <div className="max-w-xl mx-auto border-2 border-[#484dd4] rounded-xl p-6 md:p-8 bg-card">
+            <div className="text-center mb-6">
+              <div className="w-14 h-14 rounded-full bg-[#484dd4]/20 flex items-center justify-center mx-auto mb-4">
+                <Mail className="w-7 h-7 text-[#484dd4]" />
+              </div>
+              <p className="text-muted-foreground">
+                Subscribe to my newsletter for updates on freedom tech, nostr, and bitcoin.
+              </p>
+            </div>
+            <form
+              method="post"
+              action={`${LISTMONK_URL}/subscription/form`}
+              target="_blank"
+              className="space-y-3"
+            >
+              <Input
+                type="text"
+                name="name"
+                placeholder="Name (optional)"
+                className="bg-background border-[#484dd4]/50 focus-visible:ring-[#484dd4]"
+              />
+              <Input
+                type="email"
+                name="email"
+                placeholder="you@example.com"
+                required
+                className="bg-background border-[#484dd4]/50 focus-visible:ring-[#484dd4]"
+              />
+              {/* Listmonk list UUID — one hidden input per list */}
+              <input type="hidden" name="l" value={LISTMONK_LIST_UUID} />
+              <Button
+                type="submit"
+                className="w-full bg-[#484dd4] hover:bg-[#484dd4]/90 text-white gap-2"
+              >
+                <Send className="w-4 h-4" />
+                Subscribe
+              </Button>
+            </form>
+            <p className="text-xs text-muted-foreground text-center mt-4">
+              Powered by{' '}
+              <a
+                href="https://listmonk.app"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[#484dd4] hover:underline"
+              >
+                Listmonk
+              </a>
+              {' '}— self-hosted, just like everything else here.
+            </p>
           </div>
         </div>
 
