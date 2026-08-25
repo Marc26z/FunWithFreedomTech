@@ -299,7 +299,7 @@ Fun With Freedom Tech
             </a>
           </h3>
           <p className="text-[#ffffff] font-semibold text-lg">
-            Art that celebrates technology that keeps us free.
+            This website is a place used to display art that celebrates technology that keeps us free. Freedom tech has <a href="https://en.wikipedia.org/wiki/Interoperability">Interoperability</a>. Freedom tech is fun.
           </p>
           <div className="flex justify-center pt-2">
             <ProfileZapButton pubkey={MARC_PUBKEY} />
@@ -308,9 +308,9 @@ Fun With Freedom Tech
 
         {/* Forum Section */}
         <div className="mb-10">
-          <h2 className="text-2xl md:text-3xl font-semibold text-[#484dd4] text-center mb-6">
+          <h4 className="text-2xl md:text-3xl font-semibold text-[#484dd4] text-center mb-6">
              Have Fun Writing On My Board
-          </h2>
+          </h4>
           {/* Replace the nwc-url value with a new NWC connection from your Alby wallet */}
           <div className="border-2 border-[#484dd4] rounded-xl overflow-hidden">
             <div
@@ -332,7 +332,9 @@ Fun With Freedom Tech
           </div>
         </div>
 
-        {/* Email Subscribe Section */}
+        {/* Email Subscribe Section — hidden until the Listmonk server is ready.
+            To re-enable: remove this comment wrapper (the opening line above and the closing marker below).
+            Note: the hidden input name="l" holds the Listmonk list UUID — one hidden input per list.
         <div className="mb-10">
           <h2 className="text-2xl md:text-3xl font-semibold text-[#484dd4] text-center mb-6">
             Have Fun Reading My Emails
@@ -365,7 +367,6 @@ Fun With Freedom Tech
                 required
                 className="bg-background border-[#484dd4]/50 focus-visible:ring-[#484dd4]"
               />
-              {/* Listmonk list UUID — one hidden input per list */}
               <input type="hidden" name="l" value={LISTMONK_LIST_UUID} />
               <Button
                 type="submit"
@@ -389,6 +390,7 @@ Fun With Freedom Tech
             </p>
           </div>
         </div>
+        End of Email Subscribe Section */}
 
         {/* Latest Blog Posts */}
         <RecentBlogPosts />
