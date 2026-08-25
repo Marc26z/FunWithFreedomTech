@@ -299,7 +299,7 @@ Fun With Freedom Tech
             </a>
           </h3>
           <p className="text-[#ffffff] font-semibold text-lg">
-            I make art to showcase technology that can't be stopped.
+            Art that celebrates technology that keeps us free.
           </p>
           <div className="flex justify-center pt-2">
             <ProfileZapButton pubkey={MARC_PUBKEY} />
