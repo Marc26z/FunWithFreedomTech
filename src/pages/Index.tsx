@@ -299,7 +299,7 @@ Fun With Freedom Tech
             </a>
           </h3>
           <p className="text-[#ffffff] font-semibold text-lg">
-            I make art to showcase technology dictators can't stop.
+            I make art to showcase technology that can't be stopped.
           </p>
           <div className="flex justify-center pt-2">
             <ProfileZapButton pubkey={MARC_PUBKEY} />
