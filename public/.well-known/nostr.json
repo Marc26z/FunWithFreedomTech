@@ -6,7 +6,12 @@
     "df478568479de26b4a83c1bdc4dbab61b5cc82e1a312e2b28bc815a12a951e67": [
       "wss://relay.ditto.pub",
       "wss://relay.primal.net",
-      "wss://relay.damus.io"
+      "wss://relay.damus.io",
+      "wss://nos.lol",
+      "wss://relay.snort.social",
+      "wss://offchain.pub",
+      "wss://relay.nostr.band",
+      "wss://relay.nostr.net"
     ]
   }
 }
