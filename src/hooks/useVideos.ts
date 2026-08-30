@@ -142,12 +142,13 @@ export function useVideos() {
   const { nostr } = useNostr();
 
   return useQuery<ParsedVideo[]>({
-    queryKey: ['videos', VIDEO_AUTHOR_PUBKEY, 'shorts'],
+    queryKey: ['videos', VIDEO_AUTHOR_PUBKEY, 'shorts', 'freedomtech'],
     queryFn: async ({ signal }) => {
       const events = await nostr.query(
         [{
           kinds: [VIDEO_KINDS.SHORT], // Only fetch short videos (kind 34236)
           authors: [VIDEO_AUTHOR_PUBKEY],
+          '#t': ['freedomtech'], // Only videos tagged with #freedomtech
           limit: 100,
         }],
         { signal: AbortSignal.any([signal, AbortSignal.timeout(10000)]) }
