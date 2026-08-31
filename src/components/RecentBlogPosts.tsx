@@ -29,20 +29,14 @@ function parseBlogPost(event: NostrEvent): BlogPost | null {
   const publishedAtStr = event.tags.find(([name]) => name === 'published_at')?.[1];
   const publishedAt = publishedAtStr ? parseInt(publishedAtStr) : event.created_at;
 
-  // Build the naddr URL for the post
-  const naddr = nip19.naddrEncode({
-    kind: event.kind,
-    pubkey: event.pubkey,
-    identifier: dTag,
-    relays: [],
-  });
+  const npub = nip19.npubEncode(event.pubkey);
 
   return {
     title,
     summary,
     publishedAt,
     image,
-    url: `https://staging-funwithfreedomtechblog.shakespeare.wtf/${naddr}`,
+    url: `https://wordstr.funwithfreedomtech.com/blog/${npub}/${dTag}/`,
     slug: dTag,
   };
 }
