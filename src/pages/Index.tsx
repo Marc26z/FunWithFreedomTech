@@ -356,9 +356,21 @@ Fun With Freedom Tech
 
         {/* Forum Section */}
         <div className="mb-10">
-          <h4 className="text-2xl md:text-3xl font-semibold text-[#484dd4] text-center mb-6">
+          <h4 className="text-2xl md:text-3xl font-semibold text-[#484dd4] text-center mb-4">
              Have Fun Writing On My Board
           </h4>
+          <p className="text-muted-foreground text-sm text-center max-w-2xl mx-auto mb-6 leading-relaxed">
+            This is my lightning message board. I made it with{' '}
+            <a href="https://getalby.com/invited-by/funwithfreedomtech" target="_blank" rel="noopener noreferrer" className="text-[#484dd4] hover:underline font-medium">Alby Hub</a>
+            {' '}(sign up using{' '}
+            <a href="https://getalby.com/invited-by/funwithfreedomtech" target="_blank" rel="noopener noreferrer" className="text-[#484dd4] hover:underline">my link</a>
+            {' '}for a 10% discount your first 12 months).{' '}
+            <em className="text-muted-foreground/70">They pay me a commission if you use that link.</em>
+            {' '}I like it because it is free and open source. I also got to test it in alpha stage, before it was released to the public. I lost some sats doing this, but not many. They have all kinds of cool features like{' '}
+            <a href="https://github.com/getAlby/ZapPlanner/" target="_blank" rel="noopener noreferrer" className="text-[#484dd4] hover:underline">Zap Planner</a>
+            {'. '}Check them out{' '}
+            <strong className="text-white">or write on my wall for a thousand sats</strong>.
+          </p>
           {/* Replace the nwc-url value with a new NWC connection from your Alby wallet */}
           <div className="border-2 border-[#484dd4] rounded-xl overflow-hidden">
             <div
