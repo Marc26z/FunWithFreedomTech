@@ -396,9 +396,24 @@ Fun With Freedom Tech
         <RecentBlogPosts />
 
         {/* My Divine Videos Header */}
-        <h2 className="text-2xl md:text-3xl font-semibold text-[#484dd4] text-center mt-12 mb-6">
+        <h2 className="text-2xl md:text-3xl font-semibold text-[#484dd4] text-center mt-12 mb-4">
           My Divine Videos
         </h2>
+
+        {/* Divine CTA */}
+        <div className="mb-6 text-center">
+          <p className="text-muted-foreground">
+            Like short videos?{' '}
+            <a
+              href="https://divine.video/discovery/classics/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[#484dd4] hover:text-[#484dd4]/80 font-semibold hover:underline transition-colors"
+            >
+              Join Divine — the Vine reboot built on freedom tech. 🎬
+            </a>
+          </p>
+        </div>
 
         {/* Short Videos Grid */}
         {isLoading && (
@@ -436,20 +451,6 @@ Fun With Freedom Tech
           </>
         )}
 
-        {/* Divine CTA */}
-        <div className="mt-8 text-center">
-          <p className="text-muted-foreground">
-            Like short videos?{' '}
-            <a
-              href="https://divine.video/discovery/classics/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-[#484dd4] hover:text-[#484dd4]/80 font-semibold hover:underline transition-colors"
-            >
-              Join Divine — the Vine reboot built on freedom tech. 🎬
-            </a>
-          </p>
-        </div>
       </main>
 
       {/* Footer */}
