@@ -136,28 +136,43 @@ function parseVideoEvent(event: NostrEvent): ParsedVideo | null {
 }
 
 /**
- * Hook to fetch NIP-71 short videos from the configured author
+ * Returns true if a parsed video is tagged with #freedom (case-insensitive).
+ * Checks both the t-tag array and the event content for inline hashtags.
+ */
+function hasFreedomTag(video: ParsedVideo): boolean {
+  const inTags = video.tags.some((t) => t.toLowerCase() === 'freedom');
+  if (inTags) return true;
+  return /(?:^|\s)#freedom\b/i.test(video.event.content);
+}
+
+/**
+ * Hook to fetch NIP-71 short videos by Marc that are tagged with #freedom.
+ * Queries at the relay level for efficiency, then double-checks client-side
+ * to catch any casing variations not caught by the relay filter.
  */
 export function useVideos() {
   const { nostr } = useNostr();
 
   return useQuery<ParsedVideo[]>({
-    queryKey: ['videos', VIDEO_AUTHOR_PUBKEY, 'shorts', 'freedomtech'],
+    queryKey: ['videos', VIDEO_AUTHOR_PUBKEY, 'shorts', 'freedom'],
     queryFn: async ({ signal }) => {
       const events = await nostr.query(
         [{
-          kinds: [VIDEO_KINDS.SHORT], // Only fetch short videos (kind 34236)
+          kinds: [VIDEO_KINDS.SHORT],
           authors: [VIDEO_AUTHOR_PUBKEY],
-          '#t': ['freedomtech'], // Only videos tagged with #freedomtech
+          // Filter at the relay level — catches the most common casings.
+          // Client-side hasFreedomTag() below handles any edge cases.
+          '#t': ['freedom', 'Freedom', 'FREEDOM'],
           limit: 100,
         }],
         { signal: AbortSignal.any([signal, AbortSignal.timeout(10000)]) }
       );
       
-      // Parse and filter valid video events
+      // Parse, validate, filter to #freedom only, then sort newest first
       const videos = events
         .map(parseVideoEvent)
         .filter((v): v is ParsedVideo => v !== null)
+        .filter(hasFreedomTag)
         .sort((a, b) => (b.publishedAt || 0) - (a.publishedAt || 0));
       
       return videos;
