@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useSeoMeta } from '@unhead/react';
-import { Video, Plus, Film, Loader2, BookOpen, ShoppingBag, Home, Menu, X, Github, Link, Wrench, Mail, Send } from 'lucide-react';
+import { Video, Plus, Film, Loader2, BookOpen, ShoppingBag, Home, Menu, X, Github, Link, Wrench, Mail, Send, Play } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
@@ -300,6 +300,54 @@ Fun With Freedom Tech
           </h3>
           <p className="text-[#ffffff] font-semibold text-lg">
             This website is a place used to display art that celebrates technology that keeps us free. Freedom tech has <a href="https://en.wikipedia.org/wiki/Interoperability">Interoperability</a>. Freedom tech is fun.
+          </p>
+
+          {/* Yakihonne follow CTA */}
+          <p className="text-muted-foreground text-base">
+            Want to get notified when I publish new blogs?{' '}
+            <a
+              href="https://yakihonne.com/users/nprofile1qqs9l4jjqs4kpq4shg2lgk2ze9r5wu7prl9xsxp75g46fzq5yjegm9cpremhxue69uhkummnw3ez6ur4vgh8wetvd3hhyer9wghxuet5qgswaehxw309ahx7uewd3hkcqpr4mhxue69uhhyetvv9ujuam9wd6x2unwvf6xxtnrdaks4qe3e"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[#484dd4] hover:text-[#484dd4]/80 font-semibold hover:underline transition-colors"
+            >
+              Follow me on Yakihonne
+            </a>
+            {' '}— a free Nostr app built for long-form reading.{' '}
+            <Dialog>
+              <DialogTrigger asChild>
+                <button className="inline-flex items-center gap-1 text-[#484dd4] hover:text-[#484dd4]/80 font-semibold hover:underline transition-colors">
+                  <Play className="w-3.5 h-3.5 fill-current" />
+                  Watch how it works
+                </button>
+              </DialogTrigger>
+              <DialogContent className="sm:max-w-2xl p-0 overflow-hidden bg-black border-[#484dd4]/50">
+                <DialogHeader className="px-4 pt-4 pb-2">
+                  <DialogTitle className="text-[#484dd4]">Getting started with Yakihonne</DialogTitle>
+                </DialogHeader>
+                <div className="px-4 pb-4">
+                  <video
+                    src="https://yakihonne.s3.ap-east-1.amazonaws.com/videos/yakihonne-mobile-app-promo.mp4"
+                    controls
+                    autoPlay
+                    className="w-full rounded-lg border border-[#484dd4]/30"
+                    style={{ maxHeight: '60vh' }}
+                  />
+                  <p className="text-xs text-muted-foreground mt-3 text-center">
+                    After watching, download the app and search for{' '}
+                    <a
+                      href="https://yakihonne.com/users/nprofile1qqs9l4jjqs4kpq4shg2lgk2ze9r5wu7prl9xsxp75g46fzq5yjegm9cpremhxue69uhkummnw3ez6ur4vgh8wetvd3hhyer9wghxuet5qgswaehxw309ahx7uewd3hkcqpr4mhxue69uhhyetvv9ujuam9wd6x2unwvf6xxtnrdaks4qe3e"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-[#484dd4] hover:underline"
+                    >
+                      marc@funwithfreedomtech.com
+                    </a>
+                    {' '}to follow and get notified of new articles.
+                  </p>
+                </div>
+              </DialogContent>
+            </Dialog>
           </p>
           <div className="flex justify-center pt-2">
             <ProfileZapButton pubkey={MARC_PUBKEY} />
