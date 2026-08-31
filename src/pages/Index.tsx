@@ -435,6 +435,21 @@ Fun With Freedom Tech
             )}
           </>
         )}
+
+        {/* Divine CTA */}
+        <div className="mt-8 text-center">
+          <p className="text-muted-foreground">
+            Like short videos?{' '}
+            <a
+              href="https://divine.video/discovery/classics/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[#484dd4] hover:text-[#484dd4]/80 font-semibold hover:underline transition-colors"
+            >
+              Join Divine — the Vine reboot built on freedom tech. 🎬
+            </a>
+          </p>
+        </div>
       </main>
 
       {/* Footer */}
