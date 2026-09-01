@@ -455,6 +455,16 @@ Fun With Freedom Tech
         {/* Latest Blog Posts */}
         <RecentBlogPosts />
 
+        {/* Blog disclaimer & Boris */}
+        <p className="text-muted-foreground text-sm text-center max-w-2xl mx-auto mt-4 mb-10 leading-relaxed">
+          This is an independent website. I write about nostr and electronic coins. This is not investment or cybersecurity advice. This is how I play with cryptography. To listen to the blog, click on the headphones icon. You will be taken to the{' '}
+          <a href="https://github.com/dergigi/boris" target="_blank" rel="noopener noreferrer" className="text-[#484dd4] hover:underline">Boris App</a>
+          {' '}or{' '}
+          <a href="https://read.withboris.com/explore" target="_blank" rel="noopener noreferrer" className="text-[#484dd4] hover:underline">website</a>
+          {'. '}
+          <strong className="text-white">This nostr client allows readers to listen to the article</strong>.
+        </p>
+
         {/* My Divine Videos Header */}
         <h2 className="text-2xl md:text-3xl font-semibold text-[#484dd4] text-center mt-12 mb-4">
           My Divine Videos
