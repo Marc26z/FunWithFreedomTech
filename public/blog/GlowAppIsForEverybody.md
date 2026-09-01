@@ -1,56 +1,5 @@
----
-title: "Glow Wallet Review: The Easiest Bitcoin Lightning Wallet for Beginners (2026)"
-description: "Glow App by Breez is a beginner-friendly Bitcoin Lightning wallet with passkey support, BIP-39 backup, and a PWA. Learn why it's perfect for everyday spending."
-author: "Marc26z"
-date: "2026-08-30T00:13:53Z"
-lastmod: "2026-08-30T00:13:53Z"
-draft: false
-canonical: "https://funwithfreedomtech.com/blog/glow-app-is-for-everybody"
-
-keywords:
-  - Glow Wallet
-  - Bitcoin Lightning wallet
-  - Breez wallet
-  - self-custody bitcoin
-  - Lightning address
-  - passkey bitcoin wallet
-  - BIP-39
-  - bitcoin for beginners
-  - Lightning Network
-  - non-custodial wallet
-
-tags:
-  - Bitcoin
-  - Lightning Network
-  - Glow Wallet
-  - Self-Custody
-  - Wallets
-
-categories:
-  - Bitcoin
-  - Reviews
-
-cover:
-  image: "https://github.com/Marc26z/FunWithFreedomTech/blob/main/public/blog/images/glowIsForEverybody/GlowIsForEverybody.jpg?raw=true"
-  alt: "Glow Wallet Is For Everybody — Bitcoin Lightning wallet hero image"
-
-og:
-  type: "article"
-  title: "Glow App Is For Everybody — The Easiest Bitcoin Lightning Wallet"
-  description: "Passkey onboarding, BIP-39 backups, a Progressive Web App, and a customizable Lightning address. Why Glow Wallet is perfect for spending sats on coffee, not generational wealth."
-  image: "https://github.com/Marc26z/FunWithFreedomTech/blob/main/public/blog/images/glowIsForEverybody/GlowIsForEverybody.jpg?raw=true"
-  url: "https://funwithfreedomtech.com/npub1marc26z8nh3xkj5rcx7ufkatvx6ueqhp5vfw9v5teq26z254renshtf3g0/glow-app-is-for-everybody"
-  site_name: "Fun With Freedom Tech"
-
-twitter:
-  card: "summary_large_image"
-  title: "Glow App Is For Everybody — Easiest Bitcoin Lightning Wallet"
-  description: "Passkey support, BIP-39 backup, and a PWA make Glow the perfect blow-money wallet. Review by @Marc26z."
-  image: "https://github.com/Marc26z/FunWithFreedomTech/blob/main/public/blog/images/glowIsForEverybody/GlowIsForEverybody.jpg?raw=true"
-  creator: "@Marc26z"
----
-
 # Glow App Is For Everybody
+
 ![Glow Wallet Is For Everybody](https://github.com/Marc26z/FunWithFreedomTech/blob/main/public/blog/images/glowIsForEverybody/GlowIsForEverybody.jpg?raw=true)
 
 Testing Bitcoin Lightning wallets, for me, is better than watching baseball🥱. The Lightning Network is like email for payments. Brick-and-mortar businesses are beginning to accept payments over this monetary email network.
