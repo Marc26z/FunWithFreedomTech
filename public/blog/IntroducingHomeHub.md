@@ -1,4 +1,4 @@
-# "Home Hub: A Free, Encrypted Family Budget & Chore App on Nostr
+# Home Hub: A Free, Encrypted Family Budget & Chore App on Nostr
 
 I do most of the chores in my house. I also take care of all the bills. I decided I needed to create an app to help me do this. These grocery prices are getting out of control. I have used automated budgeting apps in the past, but they suck.  
 
