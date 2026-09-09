@@ -51,7 +51,14 @@ The cool thing is I have a key I can share with my wife. Satoshi said bitcoin mi
 #### Try Home Hub Today
 
 ![hand drawn home hub logo](https://raw.githubusercontent.com/Marc26z/FunWithFreedomTech/d03f715b824f56791f8bf1e9fff6d22b1d32a676/public/blog/images/homeHubHandDrawn.png)
-
 [Click here to try Home Hub](https://homehub.shakespeare.wtf/). I drew the logo by hand but changed the colors using AI. It still looks human-made, which is how I like it, but it's cleaner than my scribbles. The internet is full of AI slop — photos that all look the same. I want my logos to look hand-drawn, even if they're rough, because that makes them different. AI can make some amazing pictures — the Seinfeld videos are pretty good — but AI can't make human-made art. That's still a skill only humans have. I prefer my bad art to AI slop. Practice makes perfect, though; I've noticed my art getting better just from doing it more.
 
 Try Home Hub today. Hopefully you find it useful. If you do, send sats, tell your friends — they need a budget. **Fiat isn't getting any more valuable.**
+
+**npub1marc26z8nh3xkj5rcx7ufkatvx6ueqhp5vfw9v5teq26z254renshtf3g0**
+**Website:** https://funwithfreedomtech.com/
+**Block Height:** 966227
+**Timestamp (UTC):** 2026-09-09T15:13:23Z
+**Block Header:** 00000000000000000002189d622224463a0cbcc79d39444447bcea4f3e340248
+
+[Subscribe With Sats](https://zapplanner.albylabs.com/confirm?amount=2100&recipient=funwithfreedomtech@getalby.com&timeframe=30d&comment=FWFT%20signal%20tier&returnUrl=https://funwithfreedomtech.com/subscribed)
