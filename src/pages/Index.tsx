@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useSeoMeta } from '@unhead/react';
-import { Video, Plus, Film, Loader2, BookOpen, ShoppingBag, Home, Menu, X, Github, Link, Wrench, Mail, Send, Play } from 'lucide-react';
+import { Plus, Film, Loader2, BookOpen, ShoppingBag, Home, Menu, X, Github, Link, Wrench, Mail, Send, Play } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
@@ -29,6 +29,10 @@ const MARC_PUBKEY = 'df478568479de26b4a83c1bdc4dbab61b5cc82e1a312e2b28bc815a12a9
 // 2. Set LISTMONK_LIST_UUID to your public list's UUID (found in the Listmonk admin dashboard under Lists)
 const LISTMONK_URL = 'https://listmonk.funwithfreedomtech.com';
 const LISTMONK_LIST_UUID = '';
+
+// Flip to true once the Listmonk server is ready to accept subscriptions.
+// The section stays compiled and type-checked either way.
+const SHOW_EMAIL_SUBSCRIBE = false;
 
 function VideoSkeleton() {
   return (
@@ -393,8 +397,9 @@ Fun With Freedom Tech
         </div>
 
         {/* Email Subscribe Section — hidden until the Listmonk server is ready.
-            To re-enable: remove this comment wrapper (the opening line above and the closing marker below).
-            Note: the hidden input name="l" holds the Listmonk list UUID — one hidden input per list.
+            Flip SHOW_EMAIL_SUBSCRIBE to true above to re-enable it.
+            Note: the hidden input name="l" holds the Listmonk list UUID — one hidden input per list. */}
+        {SHOW_EMAIL_SUBSCRIBE && (
         <div className="mb-10">
           <h2 className="text-2xl md:text-3xl font-semibold text-[#484dd4] text-center mb-6">
             Have Fun Reading My Emails
@@ -450,7 +455,7 @@ Fun With Freedom Tech
             </p>
           </div>
         </div>
-        End of Email Subscribe Section */}
+        )}
 
         {/* Latest Blog Posts */}
         <RecentBlogPosts />

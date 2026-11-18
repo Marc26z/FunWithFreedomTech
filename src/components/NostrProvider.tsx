@@ -56,7 +56,10 @@ const NostrProvider: React.FC<NostrProviderProps> = (props) => {
 
         return [...allRelays];
       },
-      eoseTimeout: 200,
+      // Wait up to 2s after the FIRST relay sends EOSE for the remaining relays
+      // to catch up. 200ms was too aggressive: slower relays were cut off mid-stream
+      // and queries returned a random subset of events (e.g. 8 of 139 videos).
+      eoseTimeout: 2000,
     });
   }
 

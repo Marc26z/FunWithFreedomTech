@@ -38,11 +38,20 @@ function formatDate(timestamp: number | undefined): string {
 export function VideoCard({ video }: VideoCardProps) {
   const [isPlaying, setIsPlaying] = useState(false);
   const [showWarning, setShowWarning] = useState(!!video.contentWarning);
-  
+  const [sourceIndex, setSourceIndex] = useState(0);
+  const [playbackFailed, setPlaybackFailed] = useState(false);
+
   const primaryMedia = video.media[0];
   const thumbnail = primaryMedia?.thumbnail;
   const duration = primaryMedia?.duration;
-  
+
+  // Primary URL first, then any fallback URLs from the imeta tag.
+  const sources = [
+    ...(primaryMedia?.url ? [primaryMedia.url] : []),
+    ...(primaryMedia?.fallbackUrls ?? []),
+  ];
+  const currentSource = sources[sourceIndex];
+
   const handlePlayClick = () => {
     if (video.contentWarning && showWarning) {
       setShowWarning(false);
@@ -50,21 +59,51 @@ export function VideoCard({ video }: VideoCardProps) {
     }
     setIsPlaying(true);
   };
+
+  const handleVideoError = () => {
+    // Try the next fallback URL before giving up.
+    if (sourceIndex + 1 < sources.length) {
+      setSourceIndex((i) => i + 1);
+    } else {
+      setPlaybackFailed(true);
+    }
+  };
   
   return (
     <Card className="overflow-hidden group bg-card hover:bg-card/80 transition-all duration-300 border-border/50 hover:border-primary/30">
       <div className="relative aspect-video bg-black">
         {isPlaying ? (
-          <video
-            src={primaryMedia?.url}
-            controls
-            autoPlay
-            loop
-            className="w-full h-full object-contain"
-            poster={thumbnail}
-          >
-            Your browser does not support the video tag.
-          </video>
+          playbackFailed ? (
+            <div className="w-full h-full flex flex-col items-center justify-center gap-2 p-4 text-center bg-secondary">
+              <AlertTriangle className="w-8 h-8 text-destructive" />
+              <p className="text-sm text-muted-foreground">This video failed to load.</p>
+              {currentSource && (
+                <a
+                  href={currentSource}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm text-primary hover:underline"
+                >
+                  Open video in a new tab
+                </a>
+              )}
+            </div>
+          ) : (
+            <video
+              key={currentSource}
+              src={currentSource}
+              controls
+              autoPlay
+              loop
+              playsInline
+              preload="metadata"
+              className="w-full h-full object-contain"
+              poster={thumbnail}
+              onError={handleVideoError}
+            >
+              Your browser does not support the video tag.
+            </video>
+          )
         ) : (
           <>
             {thumbnail ? (
@@ -99,7 +138,7 @@ export function VideoCard({ video }: VideoCardProps) {
             {(!video.contentWarning || !showWarning) && (
               <button
                 onClick={handlePlayClick}
-                className="absolute inset-0 flex items-center justify-center bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                className="absolute inset-0 flex items-center justify-center bg-black/40 opacity-100 lg:opacity-0 lg:group-hover:opacity-100 transition-opacity duration-300"
                 aria-label="Play video"
               >
                 <div className="w-16 h-16 rounded-full bg-primary/90 flex items-center justify-center transform group-hover:scale-110 transition-transform duration-300">

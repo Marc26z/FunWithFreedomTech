@@ -1,6 +1,7 @@
 import { useNostr } from '@nostrify/react';
 import { useQuery } from '@tanstack/react-query';
 import type { NostrEvent } from '@nostrify/nostrify';
+import { useAppContext } from '@/hooks/useAppContext';
 
 // Video author pubkey
 const VIDEO_AUTHOR_PUBKEY = 'df478568479de26b4a83c1bdc4dbab61b5cc82e1a312e2b28bc815a12a951e67'; // npub1marc26z8nh3xkj5rcx7ufkatvx6ueqhp5vfw9v5teq26z254renshtf3g0
@@ -10,6 +11,13 @@ const VIDEO_KINDS = {
   NORMAL: 34235,      // Addressable normal videos
   SHORT: 34236,       // Addressable short videos
 };
+
+// Hashtags that qualify a video for the video section.
+const FEATURED_HASHTAGS = ['freedom', 'freedomtech', 'bitcoin'];
+
+// nos.lol hosts some videos that are not on the user's configured relays
+// (e.g. "PGP Is Not An NFT"), so always query it alongside them.
+const EXTRA_READ_RELAYS = ['wss://nos.lol'];
 
 export interface VideoMetadata {
   url: string;
@@ -110,7 +118,23 @@ function parseVideoEvent(event: NostrEvent): ParsedVideo | null {
   
   // Parse imeta for video data
   const media = parseImetaTags(tags);
-  
+
+  if (media.length === 0) {
+    // Some clients (e.g. flare.pub) publish a top-level `url` tag instead of imeta.
+    const topLevelUrl = tags.find(([name]) => name === 'url')?.[1];
+    if (topLevelUrl) {
+      const topLevelThumb = tags.find(([name]) => name === 'thumb')?.[1]
+        ?? tags.find(([name]) => name === 'image')?.[1];
+      const topLevelDuration = tags.find(([name]) => name === 'duration')?.[1];
+      media.push({
+        url: topLevelUrl,
+        mimeType: 'video/mp4',
+        thumbnail: topLevelThumb,
+        duration: topLevelDuration,
+      });
+    }
+  }
+
   if (media.length === 0) {
     return null;
   }
@@ -136,43 +160,57 @@ function parseVideoEvent(event: NostrEvent): ParsedVideo | null {
 }
 
 /**
- * Returns true if a parsed video is tagged with #freedom (case-insensitive).
+ * Returns true if a parsed video is tagged with one of FEATURED_HASHTAGS
+ * (#freedom, #freedomtech, #bitcoin) — case-insensitive.
  * Checks both the t-tag array and the event content for inline hashtags.
  */
-function hasFreedomTag(video: ParsedVideo): boolean {
-  const inTags = video.tags.some((t) => t.toLowerCase() === 'freedom');
+function hasFeaturedTag(video: ParsedVideo): boolean {
+  const wanted = FEATURED_HASHTAGS;
+  const inTags = video.tags.some((t) => wanted.includes(t.toLowerCase().replace(/^#/, '')));
   if (inTags) return true;
-  return /(?:^|\s)#freedom\b/i.test(video.event.content);
+  const inline: string[] = video.event.content.match(/#[A-Za-z0-9_]+/g) ?? [];
+  return inline.some((tag) => wanted.includes(tag.slice(1).toLowerCase()));
 }
 
 /**
- * Hook to fetch NIP-71 short videos by Marc that are tagged with #freedom.
+ * Hook to fetch NIP-71 videos by Marc tagged with #freedom, #freedomtech, or #bitcoin.
  * Queries at the relay level for efficiency, then double-checks client-side
  * to catch any casing variations not caught by the relay filter.
  */
 export function useVideos() {
   const { nostr } = useNostr();
+  const { config } = useAppContext();
 
   return useQuery<ParsedVideo[]>({
-    queryKey: ['videos', VIDEO_AUTHOR_PUBKEY, 'shorts', 'freedom'],
+    queryKey: ['videos', VIDEO_AUTHOR_PUBKEY, 'featured', FEATURED_HASHTAGS.join(','), config.relayMetadata.relays],
     queryFn: async ({ signal }) => {
+      // Query the user's read relays plus the extra relays that host videos.
+      const readRelays = config.relayMetadata.relays
+        .filter((r) => r.read)
+        .map((r) => r.url);
+      const relays = [...new Set([...readRelays, ...EXTRA_READ_RELAYS])];
+
       const events = await nostr.query(
         [{
-          kinds: [VIDEO_KINDS.SHORT],
+          kinds: [VIDEO_KINDS.NORMAL, VIDEO_KINDS.SHORT],
           authors: [VIDEO_AUTHOR_PUBKEY],
-          // Filter at the relay level — catches the most common casings.
-          // Client-side hasFreedomTag() below handles any edge cases.
-          '#t': ['freedom', 'Freedom', 'FREEDOM'],
-          limit: 100,
+          // Relay `#t` filters are exact-match, so include the common casings.
+          // Client-side hasFeaturedTag() below handles any edge cases.
+          '#t': [
+            'freedom', 'Freedom', 'FREEDOM',
+            'freedomtech', 'FreedomTech', 'FREEDOMTECH',
+            'bitcoin', 'Bitcoin', 'BITCOIN',
+          ],
+          limit: 500,
         }],
-        { signal: AbortSignal.any([signal, AbortSignal.timeout(10000)]) }
+        { signal: AbortSignal.any([signal, AbortSignal.timeout(15000)]), relays }
       );
       
-      // Parse, validate, filter to #freedom only, then sort newest first
+      // Parse, validate, filter to the featured hashtags only, then sort newest first
       const videos = events
         .map(parseVideoEvent)
         .filter((v): v is ParsedVideo => v !== null)
-        .filter(hasFreedomTag)
+        .filter(hasFeaturedTag)
         .sort((a, b) => (b.publishedAt || 0) - (a.publishedAt || 0));
       
       return videos;

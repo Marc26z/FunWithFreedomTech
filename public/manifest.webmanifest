@@ -1,0 +1,18 @@
+{
+  "name": "Fun With Freedom Tech",
+  "short_name": "FunWithFreedomTech",
+  "description": "Fun With Freedom Tech — videos, blog posts, and tools about freedom tech, nostr, and bitcoin.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#000000",
+  "icons": [
+    {
+      "src": "/FunWithFreedomTechLogo.png",
+      "sizes": "500x491",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}
