@@ -22,9 +22,11 @@ jobs:
           node-version: "22"
           
       - name: Clean install dependencies
-        run: |
-          rm -rf node_modules package-lock.json
-          npm install
-          
+        # Install exactly what package-lock.json resolves so CI matches local
+        # builds. Deleting the lockfile pulled newer semver-compatible releases
+        # (e.g. nostr-tools 2.15 -> 2.26, which changed nip57.makeZapRequest's
+        # signature) and broke `tsc` even though the code is fine.
+        run: npm ci
+
       - name: Run tests
         run: npm run test
