@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useSeoMeta } from '@unhead/react';
 import { Plus, Film, Loader2, BookOpen, ShoppingBag, Home, Menu, X, Github, Link, Wrench, Mail, Send, Play } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -56,15 +56,6 @@ const Index = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { user } = useCurrentUser();
 
-  // Load the lightning-messageboard custom element
-  useEffect(() => {
-    if (document.querySelector('script[data-messageboard]')) return;
-    const script = document.createElement('script');
-    script.type = 'module';
-    script.src = 'https://esm.sh/@getalby/lightning-messageboard@latest';
-    script.setAttribute('data-messageboard', 'true');
-    document.head.appendChild(script);
-  }, []);
   const { data: videos, isLoading, error } = useVideos();
   
   useSeoMeta({
@@ -355,44 +346,6 @@ Fun With Freedom Tech
           </p>
           <div className="flex justify-center pt-2">
             <ProfileZapButton pubkey={MARC_PUBKEY} />
-          </div>
-        </div>
-
-        {/* Forum Section */}
-        <div className="mb-10">
-          <h4 className="text-2xl md:text-3xl font-semibold text-[#484dd4] text-center mb-4">
-             Have Fun Writing On My Board
-          </h4>
-          <p className="text-muted-foreground text-sm text-center max-w-2xl mx-auto mb-6 leading-relaxed">
-            This is my lightning message board. I made it with{' '}
-            <a href="https://getalby.com/invited-by/funwithfreedomtech" target="_blank" rel="noopener noreferrer" className="text-[#484dd4] hover:underline font-medium">Alby Hub</a>
-            {' '}(sign up using{' '}
-            <a href="https://getalby.com/invited-by/funwithfreedomtech" target="_blank" rel="noopener noreferrer" className="text-[#484dd4] hover:underline">my link</a>
-            {' '}for a 10% discount your first 12 months).{' '}
-            <em className="text-muted-foreground/70">They pay me a commission if you use that link.</em>
-            {' '}I like it because it is free and open source. I also got to test it in alpha stage, before it was released to the public. I lost some sats doing this, but not many. They have all kinds of cool features like{' '}
-            <a href="https://github.com/getAlby/ZapPlanner/" target="_blank" rel="noopener noreferrer" className="text-[#484dd4] hover:underline">Zap Planner</a>
-            {'. '}Check them out{' '}
-            <strong className="text-white">or write on my wall for a thousand sats</strong>.
-          </p>
-          {/* Replace the nwc-url value with a new NWC connection from your Alby wallet */}
-          <div className="border-2 border-[#484dd4] rounded-xl overflow-hidden">
-            <div
-              dangerouslySetInnerHTML={{
-                __html: `<lightning-messageboard
-                  nwc-url="nostr+walletconnect://f96c53d55cda6b3603fb96266c3d8c8ce930b20c89d6e3766819365f2c112b46?relay=wss://relay.getalby.com&relay=wss://relay2.getalby.com&secret=b6163938675a64c868838a1c769e99bd77e252c93547cfc46d03f0877ad87ac2"
-                  theme='{
-                    "primary-color": "#484dd4",
-                    "background-color": "#000000",
-                    "border-color": "#484dd4",
-                    "text-color": "#ffffff",
-                    "text-muted-color": "#999999",
-                    "button-text-color": "#484dd4",
-                    "border-radius": "0.75rem"
-                  }'
-                ></lightning-messageboard>`,
-              }}
-            />
           </div>
         </div>
 
