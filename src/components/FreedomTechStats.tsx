@@ -1,11 +1,10 @@
 import { useEffect, useState } from 'react';
-import { Bitcoin, Zap, Gauge, Users } from 'lucide-react';
+import { Bitcoin, Zap, Gauge } from 'lucide-react';
 
 interface Stats {
   blockHeight: number | null;
   satsPerDollar: number | null;
   mediumFee: number | null;
-  nostrUsers: number | null;
 }
 
 // mempool.space supports CORS natively — no proxy needed
@@ -49,7 +48,6 @@ export function FreedomTechStats() {
     blockHeight: null,
     satsPerDollar: null,
     mediumFee: null,
-    nostrUsers: null,
   });
 
   // Fetch Bitcoin stats from mempool.space
@@ -88,65 +86,9 @@ export function FreedomTechStats() {
     return () => { cancelled = true; clearInterval(interval); };
   }, []);
 
-  // Fetch live Nostr user count via nostrarchives WebSocket
-  // Payload shape: { online: number, sats: number, notes: number }
-  useEffect(() => {
-    let ws: WebSocket | null = null;
-    let reconnectTimer: ReturnType<typeof setTimeout>;
-    let cancelled = false;
-    let retries = 0;
-    const RECONNECT_DELAYS = [1000, 2000, 4000, 8000, 16000];
-
-    function connect() {
-      if (cancelled) return;
-      try {
-        ws = new WebSocket('wss://api.nostrarchives.com/v1/ws/live-metrics');
-
-        ws.onopen = () => { retries = 0; };
-
-        ws.onmessage = (e) => {
-          if (cancelled) return;
-          try {
-            const data = JSON.parse(e.data as string);
-            // The API returns { online, sats, notes } per the nostrarchives docs
-            if (typeof data.online === 'number') {
-              setStats((prev) => ({ ...prev, nostrUsers: data.online }));
-            }
-          } catch {
-            // ignore non-JSON pings
-          }
-        };
-
-        ws.onerror = () => { ws?.close(); };
-
-        ws.onclose = () => {
-          ws = null;
-          if (!cancelled) {
-            const delay = RECONNECT_DELAYS[Math.min(retries, RECONNECT_DELAYS.length - 1)];
-            retries++;
-            reconnectTimer = setTimeout(connect, delay);
-          }
-        };
-      } catch {
-        if (!cancelled) {
-          const delay = RECONNECT_DELAYS[Math.min(retries, RECONNECT_DELAYS.length - 1)];
-          retries++;
-          reconnectTimer = setTimeout(connect, delay);
-        }
-      }
-    }
-
-    connect();
-    return () => {
-      cancelled = true;
-      clearTimeout(reconnectTimer);
-      ws?.close();
-    };
-  }, []);
-
   return (
     <div className="w-full max-w-4xl mx-auto px-4 py-6">
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+      <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
         <StatCard
           icon={Bitcoin}
           label="Block Height"
@@ -165,12 +107,6 @@ export function FreedomTechStats() {
           label="Medium Priority Fee"
           value={stats.mediumFee !== null ? String(stats.mediumFee) : null}
           unit="sat/vB"
-          color="bg-[#484dd4]"
-        />
-        <StatCard
-          icon={Users}
-          label="People on Nostr Right Now"
-          value={stats.nostrUsers !== null ? stats.nostrUsers.toLocaleString() : null}
           color="bg-[#484dd4]"
         />
       </div>
