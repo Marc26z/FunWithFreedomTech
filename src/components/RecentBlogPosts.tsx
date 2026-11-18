@@ -108,7 +108,9 @@ export function RecentBlogPosts() {
         [{
           kinds: [30023],
           authors: [MARC_PUBKEY],
-          limit: 10,
+          // Fetch more than we show: events missing a title or d-tag are
+          // dropped by parseBlogPost, and we need 9 valid posts.
+          limit: 30,
         }],
         { signal: AbortSignal.any([signal, AbortSignal.timeout(10000)]) }
       );
@@ -117,7 +119,7 @@ export function RecentBlogPosts() {
         .map(parseBlogPost)
         .filter((p): p is BlogPost => p !== null)
         .sort((a, b) => b.publishedAt - a.publishedAt)
-        .slice(0, 3);
+        .slice(0, 9);
     },
     staleTime: 5 * 60 * 1000,
   });
@@ -130,7 +132,7 @@ export function RecentBlogPosts() {
 
       {isLoading && (
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-          {[...Array(3)].map((_, i) => <BlogSkeleton key={i} />)}
+          {[...Array(9)].map((_, i) => <BlogSkeleton key={i} />)}
         </div>
       )}
 
