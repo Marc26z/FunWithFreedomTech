@@ -1,0 +1,7 @@
+{
+  "tag": "payRequest",
+  "callback": "https://npub.cash/.well-known/lnurlp/npub1marc26z8nh3xkj5rcx7ufkatvx6ueqhp5vfw9v5teq26z254renshtf3g0",
+  "metadata": "[[\"text/plain\",\"Payment to marc@funwithfreedomtech.com\"],[\"text/identifier\",\"marc@funwithfreedomtech.com\"]]",
+  "minSendable": 1000,
+  "maxSendable": 100000000
+}

@@ -3,3 +3,9 @@
   Content-Type: application/json; charset=utf-8
   Cache-Control: no-cache, no-store, must-revalidate
   X-Content-Type-Options: nosniff
+
+/.well-known/lnurlp/*
+  Access-Control-Allow-Origin: *
+  Content-Type: application/json; charset=utf-8
+  Cache-Control: no-cache, no-store, must-revalidate
+  X-Content-Type-Options: nosniff
