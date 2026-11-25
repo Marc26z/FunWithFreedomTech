@@ -88,7 +88,7 @@ const Index = () => {
                 Home
               </a>
               <a
-                href="https://wordstr.funwithfreedomtech.com/npub1marc26z8nh3xkj5rcx7ufkatvx6ueqhp5vfw9v5teq26z254renshtf3g0/"
+                href="https://primal.net/marc#reads/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors"
@@ -97,7 +97,7 @@ const Index = () => {
                 Blog
               </a>
               <a
-                href="https://btcpay.funwithfreedomtech.com/apps/9UT7XBHWVKJhbSZhfthKgV96on2/pos"
+                href="https://primal.net/marc/support/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors"
@@ -179,7 +179,7 @@ const Index = () => {
                   Home
                 </a>
                 <a
-                  href="https://wordstr.funwithfreedomtech.com/npub1marc26z8nh3xkj5rcx7ufkatvx6ueqhp5vfw9v5teq26z254renshtf3g0/"
+                  href="https://primal.net/marc#reads/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors"
@@ -189,7 +189,7 @@ const Index = () => {
                   Blog
                 </a>
                 <a
-                  href="https://btcpay.funwithfreedomtech.com/apps/9UT7XBHWVKJhbSZhfthKgV96on2/pos"
+                  href="https://primal.net/marc/support/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors"
